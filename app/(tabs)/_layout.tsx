@@ -1,38 +1,59 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { View, Pressable, useColorScheme } from 'react-native';
+import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
-
+import { LinearGradient } from 'expo-linear-gradient';
+//* Styling
 import Colors from '../../constants/Colors';
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-      }}>
+    screenOptions={{
+      title: "",
+      tabBarStyle: {
+        borderTopWidth: 0,
+        elevation: 0,
+        backgroundColor: "transparent",
+        position: "absolute"
+      },
+      tabBarBackground: () => (
+        <View style={{ 
+          flex: 1,
+          shadowColor: "#000",
+              shadowOffset: {
+                width: -3,
+                height: -27,
+              },
+              shadowOpacity: 1,
+              shadowRadius: 16,
+              elevation: 24,
+        }}>
+          <LinearGradient 
+            start={{ x: 0, y: 0.5 }}
+            end={{ x: 0, y: 0.5 }}
+            colors={['rgba(0,0,0,0.3)', '#000']}
+            style={{ height: 100 }}
+          />
+        </View>
+      )
+    }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: '',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <MaterialIcons name="home-filled" size={33} color={color} />,
+          tabBarActiveTintColor: Colors.dark.text,
+          tabBarInactiveTintColor: Colors.pallete.gray,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
                 {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
+                  <MaterialIcons
+                    name="info"
                     size={25}
                     color={Colors[colorScheme ?? 'light'].text}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
@@ -46,8 +67,21 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: '',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <MaterialIcons name="add" size={37} color={color} />,
+          tabBarActiveTintColor: Colors.dark.text,
+          tabBarInactiveTintColor: Colors.pallete.gray,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: '',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="account" size={33} color={color} />,
+          tabBarActiveTintColor: Colors.dark.text,
+          tabBarInactiveTintColor: Colors.pallete.gray,
         }}
       />
     </Tabs>
