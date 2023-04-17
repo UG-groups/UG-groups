@@ -62,6 +62,7 @@ function DotSelector({ selector }: { selector: string }) {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
+        height: 80,
         flexDirection: 'column',
         justifyContent: 'space-between',
         alignItems: 'center',

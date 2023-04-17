@@ -22,6 +22,7 @@ export default {
     tertiary: '#212121',
     green: '#C8FC50',
     gray: '#666666',
+    lightGray: '#B1B1B1',
     inactive:  '#666666',
   }
 };

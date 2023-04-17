@@ -2,14 +2,15 @@ import { StyleSheet } from 'react-native';
 import { Text, View, ScrollView, SafeAreaView } from '../../components/Themed';
 //* UI comps.
 import Header from '../../components/molecules/Header';
+import Post from '../../components/molecules/Post';
 
 export default function TabOneScreen() {
   return (
     <SafeAreaView>
       <Header />
-      <ScrollView style={styles.container}>
-        <Text style={styles.title}>Tab One</Text>
-        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+        <Post />
+        <Post />
       </ScrollView>
     </SafeAreaView>
   );
@@ -17,7 +18,9 @@ export default function TabOneScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: '90%',
+    marginHorizontal: '5%',
+    marginVertical: 20,
   },
   title: {
     fontSize: 20,
