@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Pressable, Image } from 'react-native';
 import { View, Text } from '../../components/Themed';
 import { Link } from 'expo-router';
+import { MotiView, MotiText } from 'moti';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import logo from '../../assets/images/beegroups_logo.png';
 //* Styling
@@ -27,15 +28,34 @@ export default function Header() {
             </View>
             <View style={styles.findControls}>
                 <Pressable style={styles.optionContainer} onPress={() => handleActive('groups')}>
-                    <Text style={styles.optionText}>Mis Grupos</Text>
-                    {active === 'groups' && <View style={styles.dot}></View>}
+                    <MotiText 
+                        style={[styles.optionText, { color: active === 'groups' ? '#fff' : Colors.pallete.inactive }]}
+                    >
+                        Mis Grupos
+                    </MotiText>
+                    {active === 'groups' && <DotSelector selector={active} />}
                 </Pressable>
                 <Pressable style={styles.optionContainer} onPress={() => handleActive('discover')}>
-                    <Text style={styles.optionText}>Descubrir</Text>
-                    {active === 'discover' && <View style={styles.dot}></View>}
+                    <MotiText 
+                        style={[styles.optionText, { color: active === 'discover' ? '#fff' : Colors.pallete.inactive }]}
+                    >
+                        Descubrir
+                    </MotiText>
+                    {active === 'discover' && <DotSelector selector={active} />}
                 </Pressable>
             </View>
         </View>
+    );
+}
+
+function DotSelector({ selector }: { selector: string }) {
+    return(
+        <MotiView 
+            style={styles.dot}
+            from={{ transform: [{ translateX: selector === 'groups' ? 90 : -90 }]}}
+            animate={{ transform: [{ translateX: 0 }] }}
+            transition={{ type: 'spring' }}>
+        </MotiView>
     );
 }
 
@@ -64,14 +84,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        marginVertical: 15,
+        marginTop: 25,
     },
     optionContainer: {
+        height: 40,
         flexDirection: 'column',
         alignItems: 'center',
     },
     optionText: {
-        fontSize: 15,
+        fontSize: 16,
         fontWeight: 'bold',
         letterSpacing: 0.25,
         marginHorizontal: 15,
