@@ -1,3 +1,4 @@
+import React from 'react';
 import { StyleSheet, Pressable, Image } from 'react-native';
 import { View, Text } from '../../components/Themed';
 import { Link } from 'expo-router';
@@ -7,6 +8,12 @@ import logo from '../../assets/images/beegroups_logo.png';
 import Colors from '../../constants/Colors';
 
 export default function Header() {
+    const [active, setActive] = React.useState('groups');
+
+    const handleActive = (option: string) => {
+        setActive(option);
+    }
+
     return(
         <View style={styles.container}>
             <View style={styles.subContainer}>
@@ -19,11 +26,13 @@ export default function Header() {
                 </Pressable>
             </View>
             <View style={styles.findControls}>
-                <Pressable>
+                <Pressable style={styles.optionContainer} onPress={() => handleActive('groups')}>
                     <Text style={styles.optionText}>Mis Grupos</Text>
+                    {active === 'groups' && <View style={styles.dot}></View>}
                 </Pressable>
-                <Pressable>
+                <Pressable style={styles.optionContainer} onPress={() => handleActive('discover')}>
                     <Text style={styles.optionText}>Descubrir</Text>
+                    {active === 'discover' && <View style={styles.dot}></View>}
                 </Pressable>
             </View>
         </View>
@@ -51,20 +60,28 @@ const styles = StyleSheet.create({
     },
     findControls: {
         width: '100%',
+        height: 20,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingVertical: 15,
+        marginVertical: 15,
     },
     optionContainer: {
-        borderBottomWidth: 5,
-        borderRadius: 100,
-        borderColor: Colors.pallete.primary,
+        flexDirection: 'column',
+        alignItems: 'center',
     },
     optionText: {
         fontSize: 15,
         fontWeight: 'bold',
         letterSpacing: 0.25,
         marginHorizontal: 15,
-    }
+    },
+    dot: {
+        width: 7,
+        height: 7,
+        borderRadius: 50,
+        position: 'absolute',
+        marginTop: 22,
+        backgroundColor: Colors.pallete.primary,
+    },
 });
