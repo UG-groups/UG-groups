@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView, ScrollView } from '../../components/Themed';
 import { Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 //* UI comps.
 import GroupBox from '../../components/atoms/GroupBox';
+import Post from '../../components/molecules/Post';
 import avatar from '../../assets/images/avatar.png';
 
 
@@ -10,9 +11,12 @@ export default function Profile() {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
-      <ScrollView>
-        <ProfileInfo />
-        <Categories />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{ paddingBottom: 65 }}>
+          <ProfileInfo />
+          <Categories />
+          <Posts />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -50,7 +54,7 @@ function ProfileInfo() {
 
 function Categories(){
   return(
-    <View style={{ flexDirection: "row" }}>
+    <View style={styles.categories}>
       <View style={{ flexDirection: "column" }}>
         <Text style={styles.categoryTitle}>Grupos</Text>
         <GroupBox />
@@ -58,6 +62,21 @@ function Categories(){
       <View style={{ flexDirection: "column" }}>
         <Text style={styles.categoryTitle}>Siguiendo</Text>
         <GroupBox />
+      </View>
+    </View>
+  )
+}
+
+function Posts(){
+  return(
+    <View style={styles.posts}>
+      <Text style={styles.categoryTitle}>
+        Publicaciones
+      </Text>
+      <View>
+        <Post />
+        <Post />
+        <Post />
       </View>
     </View>
   )
@@ -115,7 +134,19 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,0.6)',
     fontFamily: 'Montserrat-SemiBold',
   },
+  categories: {
+    marginVertical: 20,
+    paddingHorizontal: "5%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   categoryTitle: {
     fontFamily: 'Basement-Grotesque',
+    marginTop: 5,
+    marginBottom: 15,
+  },
+  posts: {
+    marginVertical: 10,
+    paddingHorizontal: "5%",
   }
 });
