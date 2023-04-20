@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import user from '../../assets/images/jane.png';
+//* UI comps.
+import VoteButton from '../atoms/VoteButton';
 //* Styling
 import Colors from '../../constants/Colors';
 
@@ -20,8 +22,22 @@ export default function Post() {
                         Abro discusión sobre el arte generado por inteligencia artificial 🤖
                     </Text>
                 </View>
-                <View style={styles.postTextContainer}>
-                    <Text style={[styles.postText, { color: Colors.pallete.primary }]}>Moar content...</Text>
+                <View style={styles.postControls}>
+                    <View style={styles.voteControls}>
+                        <Pressable style={styles.upvote} onPress={() => {console.log('upvote')}}>
+                            <VoteButton iconName='up-arrow' />
+                            <Text style={styles.upvoteCounter}>24</Text>
+                        </Pressable>
+                        <Pressable onPress={() => {console.log('downvote')}}>
+                            <VoteButton iconName='down-arrow' />
+                        </Pressable>
+                    </View>
+                    <Pressable style={styles.comment}>
+                        <VoteButton iconName='comment' />
+                    </Pressable>
+                    <View>
+                        <Text style={styles.tag}>#Tags #Tags</Text>
+                    </View>
                 </View>
             </View>
         </View>
@@ -32,7 +48,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         borderRadius: 18,
-        marginVertical: 10,
+        marginVertical: 7,
         backgroundColor: Colors.pallete.secondary,
     },
     content: {
@@ -55,7 +71,7 @@ const styles = StyleSheet.create({
         marginLeft: 5,
     },
     userName: {
-        fontWeight: 'bold',
+        fontFamily: 'Montserrat-SemiBold',
         color: Colors.dark.text,
     },
     studyField: {
@@ -66,8 +82,39 @@ const styles = StyleSheet.create({
         paddingHorizontal: '5%',
         paddingVertical: 15,
     },
+    postControls: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginHorizontal: '5%',
+        paddingVertical: 5,
+    },
+    voteControls: {
+        flexDirection: 'row',
+    },
     postText: {
-        lineHeight: 16,
+        fontSize: 12,
         color: Colors.dark.text,
+        fontFamily: 'Montserrat-Medium',
+    },
+    upvote: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginRight: 10
+    },
+    comment: {
+        flexDirection: 'row', 
+        minWidth: '33.33%', 
+        justifyContent: 'center'
+    },
+    upvoteCounter: {
+        color: Colors.dark.text, 
+        fontSize: 11,
+        fontFamily: 'Montserrat-Medium', 
+    },
+    tag: {
+        fontSize: 11,
+        fontFamily: 'Montserrat-Medium',
+        color: Colors.pallete.primary,
     }
 });

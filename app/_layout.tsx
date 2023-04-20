@@ -17,8 +17,12 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    ...FontAwesome.font,
+    'Montserrat-Light': require('../assets/fonts/Montserrat-Light.ttf'),
+    'Montserrat-Regular': require('../assets/fonts/Montserrat-Regular.ttf'),
+    'Montserrat-Medium': require('../assets/fonts/Montserrat-Medium.ttf'),
+    'Montserrat-SemiBold': require('../assets/fonts/Montserrat-SemiBold.ttf'),
+    'Montserrat-Bold': require('../assets/fonts/Montserrat-Bold.ttf'),
+    'Basement-Grotesque': require('../assets/fonts/BasementGrotesque.otf'),
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.

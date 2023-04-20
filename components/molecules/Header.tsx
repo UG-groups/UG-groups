@@ -4,7 +4,7 @@ import { View, Text } from '../../components/Themed';
 import { Link } from 'expo-router';
 import { MotiView, MotiText } from 'moti';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
-import logo from '../../assets/images/beegroups_logo.png';
+import logo from '../../assets/images/uggroups_logo.png';
 //* Styling
 import Colors from '../../constants/Colors';
 
@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     logo: {
-        height: 27,
-        width: 80,
+        height: 28,
+        width: 75,
     },
     findControls: {
         width: '100%',
@@ -93,8 +93,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     optionText: {
-        fontSize: 16,
+        fontSize: 12.5,
         fontWeight: 'bold',
+        fontFamily: 'Basement-Grotesque',
         letterSpacing: 0.25,
         marginHorizontal: 15,
     },
