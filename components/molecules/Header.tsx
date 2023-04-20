@@ -93,8 +93,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     optionText: {
-        fontSize: 16,
+        fontSize: 12,
         fontWeight: 'bold',
+        fontFamily: 'Basement-Grotesque',
         letterSpacing: 0.25,
         marginHorizontal: 15,
     },
