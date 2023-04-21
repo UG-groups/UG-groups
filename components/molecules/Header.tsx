@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Pressable, Image } from 'react-native';
 import { View, Text } from '../../components/Themed';
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { MotiView, MotiText } from 'moti';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import logo from '../../assets/images/uggroups_logo.png';
@@ -9,6 +9,7 @@ import logo from '../../assets/images/uggroups_logo.png';
 import Colors from '../../constants/Colors';
 
 export default function Header() {
+    const router = useRouter();
     const [active, setActive] = React.useState('groups');
 
     const handleActive = (option: string) => {
@@ -22,7 +23,7 @@ export default function Header() {
                     <MaterialCommunityIcons name="account-group" size={30} color={Colors.dark.text} />
                 </Pressable>
                 <Image style={styles.logo} source={logo} />
-                <Pressable>
+                <Pressable onPress={() => router.push('/search')}>
                     <Ionicons name="md-search" size={28} color={Colors.dark.text} />
                 </Pressable>
             </View>
