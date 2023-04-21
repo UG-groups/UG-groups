@@ -84,6 +84,14 @@ export default function TabLayout() {
           tabBarInactiveTintColor: Colors.pallete.gray,
         }}
       />
+      <Tabs.Screen 
+        name="search"
+        options={{
+          title: '',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <MaterialIcons name="search" size={33} color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
