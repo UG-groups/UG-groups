@@ -42,7 +42,7 @@ function ProfileInfo() {
       <Image style={styles.avatar} source={avatar} />
       <View>
         <Text style={styles.userName}>Aura Betancour</Text>
-        <Text style={styles.nickName}>eugenia_lace</Text>
+        <Text style={styles.nickName}>aura_betancour</Text>
       </View>
       <View style={{ marginTop: 20 }}>
         <Text style={styles.degree}>Lic. Comercio Internacional</Text>
