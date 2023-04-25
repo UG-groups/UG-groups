@@ -51,6 +51,13 @@ const styles = StyleSheet.create({
         letterSpacing: 0.5,
         marginHorizontal: 15,
     },
+    career: {
+        fontSize: 12,
+        fontFamily: 'Montserrat-Medium',
+        marginHorizontal: 15,
+        marginTop: 2,
+        color: Colors.pallete.lightGray,
+    },
     groupDescription: {
         fontFamily: 'Montserrat-Medium',
         marginHorizontal: 15
