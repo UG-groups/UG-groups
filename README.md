@@ -1,5 +1,5 @@
-# Bee Groups App
+# UG Groups App
 
-### Repositorio oficial para la app :bee:
+### Repositorio oficial :bee:
 
 __oliverloops ©2023__
