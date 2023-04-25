@@ -1,48 +1,60 @@
-import { Image, ImageSourcePropType, StyleSheet, Dimensions } from 'react-native';
+import { Pressable, Image, ImageSourcePropType, StyleSheet, Dimensions } from 'react-native';
 import { Text, View, SafeAreaView, ScrollView } from '../components/Themed';
 import { FlashList } from '@shopify/flash-list';
+import { useRouter } from "expo-router";
 //* UI comps.
 import SearchBar from '../components/molecules/SearchBar';
 
 const { height, width } = Dimensions.get('window');
 
 const items = [
-  {id: 1, title: "Cine y Cultura", image: require('../assets/images/model_2.png')},
-  {id: 0, title: "Club de Ajedrez UG", image: require('../assets/images/chess.jpg')},
-  {id: 2, title: "Novedades DCEA", image: require('../assets/images/model_4.png')},
-  {id: 3, title: "Programación", image: require('../assets/images/model_3.png')},
+  {id: 1, title: "Cine y Cultura", image: require('../assets/images/model_2.png'), route: '/group/1'},
+  {id: 0, title: "Club de Ajedrez UG", image: require('../assets/images/chess.jpg'), route: '/group/2'},
+  {id: 2, title: "Novedades DCEA", image: require('../assets/images/model_4.png'), route: '/group/3'},
+  {id: 3, title: "Programación", image: require('../assets/images/model_3.png'), route: '/group/4'},
 ]
 
 export default function Search() {
+  const router = useRouter();
+
   return (
     <SafeAreaView style={styles.container}>
       <SearchBar />
       <ScrollView style={styles.grid}>
-        <View style={styles.bannerContainer}>
+        <Pressable style={styles.bannerContainer} onPress={() => router.push("/group/0")}>
           <Text style={styles.bannerTitle}>Título Destacado</Text>
           <Image style={styles.banner} source={require('../assets/images/model_1.png')} />
-        </View>
+        </Pressable>
+        <View>
         <FlashList 
           data={items}
           renderItem={({ item }) => 
-            <ImageItem key={item.id} title={item.title} image={item.image} />
+            <ImageItem 
+              key={item.id} 
+              title={item.title} 
+              image={item.image} 
+              route={item.route}
+            />
           }
           keyExtractor={(item) => item.id.toString()}
           numColumns={2}
           estimatedItemSize={20}
           scrollEnabled={false}
         />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
-function ImageItem({ title, image }: { title: string, image: ImageSourcePropType }) {
+function ImageItem({ title, image, route }: { title: string, image: ImageSourcePropType, route: string }) {
+  const router = useRouter();
+
   return (
-    <View style={styles.imageContainer}>
+    <Pressable style={styles.imageContainer} onPress={() => router.push(route)}>
       <Text style={styles.cardText}>{title}</Text>
       <Image source={image} style={styles.image} />
-    </View>
+    </Pressable>
   );
 }
 

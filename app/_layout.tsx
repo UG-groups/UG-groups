@@ -48,6 +48,7 @@ function RootLayoutNav() {
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="search" options={{ headerShown: false }} />
+          <Stack.Screen name="group/[id]" options={{ headerShown: true }} />
         </Stack>
       </ThemeProvider>
     </>
