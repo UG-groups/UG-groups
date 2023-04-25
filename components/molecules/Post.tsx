@@ -1,22 +1,24 @@
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
-import user from '../../assets/images/jane.png';
+import { useRouter } from 'expo-router';
 //* UI comps.
 import VoteButton from '../atoms/VoteButton';
 //* Styling
 import Colors from '../../constants/Colors';
 
 export default function Post() {
+    const router = useRouter();
+
     return(
         <View style={styles.container}>
             <View style={styles.content}>
-                <View style={styles.userSection}>
-                    <Image style={styles.userImage} source={user} />
+                <Pressable style={styles.userSection} onPress={() => router.push("/user/1")}>
+                    <Image style={styles.userImage} source={require('../../assets/images/jane.png')} />
                     <View style={styles.userInfo}>
                         <Text style={styles.userName}>Jane Doe</Text>
                         <Text style={styles.studyField}>Artes Visuales</Text>
                     </View>
-                </View>
+                </Pressable>
                 <View style={styles.postTextContainer}>
                     <Text style={styles.postText}>
                         Abro discusión sobre el arte generado por inteligencia artificial 🤖
