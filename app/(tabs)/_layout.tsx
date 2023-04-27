@@ -1,5 +1,5 @@
 import { View, Pressable, useColorScheme } from 'react-native';
-import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { Link, Tabs } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 //* Styling
@@ -65,11 +65,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="search"
         options={{
           title: '',
           headerShown: false,
-          tabBarIcon: ({ color }) => <MaterialIcons name="add" size={37} color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name="md-search" size={30} color={color} />,
           tabBarActiveTintColor: Colors.dark.text,
           tabBarInactiveTintColor: Colors.pallete.gray,
         }}
