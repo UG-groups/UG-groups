@@ -4,7 +4,6 @@ import { View, Text } from '../../components/Themed';
 import { useRouter } from 'expo-router';
 import { MotiView, MotiText } from 'moti';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
-import logo from '../../assets/images/uggroups_logo.png';
 //* Styling
 import Colors from '../../constants/Colors';
 
@@ -22,7 +21,7 @@ export default function Header() {
                 <Pressable>
                     <MaterialCommunityIcons name="account-group" size={30} color={Colors.dark.text} />
                 </Pressable>
-                <Image style={styles.logo} source={logo} />
+                <Image style={styles.logo} source={require( '../../assets/images/uggroups_logo.png')} />
                 <Pressable onPress={() => router.push('/search')}>
                     <Ionicons name="md-search" size={28} color={Colors.dark.text} />
                 </Pressable>
