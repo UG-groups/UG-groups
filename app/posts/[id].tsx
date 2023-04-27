@@ -3,6 +3,7 @@ import { View, Text, ScrollView } from '../../components/Themed';
 import { useRouter } from 'expo-router';
 //* UI comps.
 import BackButton from '../../components/atoms/BackButton';
+import CommentCard from '../../components/molecules/CommentCard';
 //* Styling
 import Colors from '../../constants/Colors';
 
@@ -10,7 +11,7 @@ export default function PostScreen(){
     const router = useRouter();
 
     return(
-        <ScrollView style={styles.container}>
+        <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
             <View style={styles.btnContainer}>
                 <BackButton />
             </View>
@@ -23,10 +24,18 @@ export default function PostScreen(){
                 </View>
             </Pressable>
             <View style={styles.postTextContainer}>
-                    <Text style={styles.postText}>
-                        Abro discusión sobre el arte generado por inteligencia artificial 🤖
-                    </Text>
-                </View>
+                <Text style={styles.postText}>
+                    Abro discusión sobre el arte generado por inteligencia artificial 🤖
+                </Text>
+            </View>
+            <Text style={styles.commentsText}>Comentarios (5)</Text>
+            <View style={styles.comments}>
+                <CommentCard />
+                <CommentCard />
+                <CommentCard />
+                <CommentCard />
+                <CommentCard />
+            </View>
         </ScrollView>
     )
 }
@@ -38,7 +47,8 @@ const styles = StyleSheet.create({
     hero: {
         width: '100%',
         height: 250,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
+        opacity: 0.9
     },
     btnContainer: {
         position: 'absolute',
@@ -78,4 +88,14 @@ const styles = StyleSheet.create({
         color: Colors.dark.text,
         fontFamily: 'Montserrat-Medium',
     },
+    commentsText: {
+        textAlign: 'center',
+        fontFamily: 'Basement-Grotesque',
+        marginVertical: 10
+    },
+    comments: {
+        marginHorizontal: '2.5%',
+        marginTop: 15,
+        marginBottom: Platform.OS === 'ios' ? 32 : 40
+    }
 })
