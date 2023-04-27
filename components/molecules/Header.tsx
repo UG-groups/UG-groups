@@ -4,7 +4,6 @@ import { View, Text } from '../../components/Themed';
 import { useRouter } from 'expo-router';
 import { MotiView, MotiText } from 'moti';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
-import logo from '../../assets/images/uggroups_logo.png';
 //* Styling
 import Colors from '../../constants/Colors';
 
@@ -22,10 +21,7 @@ export default function Header() {
                 <Pressable>
                     <MaterialCommunityIcons name="account-group" size={30} color={Colors.dark.text} />
                 </Pressable>
-                <Image style={styles.logo} source={logo} />
-                <Pressable onPress={() => router.push('/search')}>
-                    <Ionicons name="md-search" size={28} color={Colors.dark.text} />
-                </Pressable>
+                <Image style={styles.logo} source={require( '../../assets/images/uggroups_logo.png')} />
             </View>
             <View style={styles.findControls}>
                 <Pressable style={styles.optionContainer} onPress={() => handleActive('groups')}>
@@ -72,7 +68,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: '5%',
     },
     subContainer: {
-        width: '100%',
+        width: '60%',
+        marginRight: "40%",
         flexDirection: 'row',
         justifyContent: 'space-between',
     },

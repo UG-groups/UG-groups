@@ -3,6 +3,7 @@ import { Text, View, ScrollView, SafeAreaView } from '../../components/Themed';
 //* UI comps.
 import Header from '../../components/molecules/Header';
 import Post from '../../components/molecules/Post';
+import ImagePost from '../../components/molecules/ImagePost';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -13,8 +14,12 @@ export default function TabOneScreen() {
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           <Post />
+          <ImagePost image={'https://picsum.photos/id/74/200/300'} />
           <Post />
           <Post />
+          <ImagePost image={'https://picsum.photos/id/64/200/300'} />
+          <Post />
+          <ImagePost image={'https://picsum.photos/id/1/200/300'} />
           <Post />
           <Post />
         </View>

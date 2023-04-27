@@ -1,10 +1,13 @@
-import { Image, StyleSheet, Platform } from "react-native";
-import { Text, View } from "../../components/Themed";
+import React from "react";
+import { Image, Pressable } from "react-native";
+import { Text, View, ScrollView } from "../../components/Themed";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from 'expo-linear-gradient';
+import { MotiView, MotiText } from "moti";
 //* UI comps.
 import BackButton from "../../components/atoms/BackButton";
 import FollowButton from "../../components/atoms/FollowButton";
+import Post from "../../components/molecules/Post";
 //* Styling
 import styles from "./styles";
 import Colors from "../../constants/Colors";
@@ -16,6 +19,15 @@ export default function Group() {
             <View style={styles.body}>
                 <FollowButton type="group" />
             </View>
+            <ScrollView>
+                <PostController />
+                <View style={styles.postList}>
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                </View>
+            </ScrollView>
         </View>
     );
 }
@@ -49,4 +61,44 @@ function HeadContent(){
             </View>
         </View>
     )
+}
+
+function PostController(){
+    const [active, setActive] = React.useState('recents');
+
+    const handleActive = (option: string) => {
+        setActive(option);
+    }
+
+    return(
+        <View style={styles.findControls}>
+            <Pressable style={styles.optionContainer} onPress={() => handleActive('recents')}>
+                <MotiText 
+                    style={[styles.optionText, { color: active === 'recents' ? '#fff' : Colors.pallete.inactive }]}
+                >
+                    Novedades
+                </MotiText>
+                {active === 'recents' && <DotSelector selector={active} />}
+            </Pressable>
+            <Pressable style={styles.optionContainer} onPress={() => handleActive('posts')}>
+                <MotiText 
+                    style={[styles.optionText, { color: active === 'posts' ? '#fff' : Colors.pallete.inactive }]}
+                >
+                    Publicaciones
+                </MotiText>
+                {active === 'posts' && <DotSelector selector={active} />}
+            </Pressable>
+        </View>
+    )
+}
+
+function DotSelector({ selector }: { selector: string }) {
+    return(
+        <MotiView 
+            style={styles.dot}
+            from={{ transform: [{ translateX: selector === 'recents' ? 90 : -90 }]}}
+            animate={{ transform: [{ translateX: 0 }] }}
+            transition={{ type: 'spring' }}>
+        </MotiView>
+    );
 }

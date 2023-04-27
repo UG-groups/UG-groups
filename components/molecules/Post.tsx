@@ -15,8 +15,8 @@ export default function Post() {
                 <Pressable style={styles.userSection} onPress={() => router.push("/user/1")}>
                     <Image style={styles.userImage} source={require('../../assets/images/queens_gambit.png')} />
                     <View style={styles.userInfo}>
-                        <Text style={styles.userName}>Jane Doe</Text>
-                        <Text style={styles.studyField}>Artes Visuales</Text>
+                        <Text style={styles.userName}>Jane Lane</Text>
+                        <Text style={styles.studyField}>Comercio Internacional</Text>
                     </View>
                 </Pressable>
                 <View style={styles.postTextContainer}>

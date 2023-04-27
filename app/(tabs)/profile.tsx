@@ -4,8 +4,6 @@ import { Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 //* UI comps.
 import GroupBox from '../../components/atoms/GroupBox';
 import Post from '../../components/molecules/Post';
-import avatar from '../../assets/images/avatar.png';
-
 
 export default function Profile() {
   return (
@@ -39,13 +37,13 @@ function Header(){
 function ProfileInfo() {
   return(
     <View style={styles.profileContent}>
-      <Image style={styles.avatar} source={avatar} />
+      <Image style={styles.avatar} source={require('../../assets/images/avatar.png')} />
       <View>
         <Text style={styles.userName}>Aura Betancour</Text>
         <Text style={styles.nickName}>aura_betancour</Text>
       </View>
       <View style={{ marginTop: 20 }}>
-        <Text style={styles.degree}>Lic. Comercio Internacional</Text>
+        <Text style={styles.degree}>Lic. Relaciones Industriales</Text>
         <Text style={styles.division}>DCEA</Text>
       </View>
     </View>

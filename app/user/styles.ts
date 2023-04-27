@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
     body: {
         width: '90%',
         marginHorizontal: '5%',
-        marginTop: 50
+        marginTop: 50,
+        marginBottom: 20,
     },
     header: {
         width: '100%',
@@ -72,6 +73,39 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat-Medium',
         marginLeft: 5,
         color: Colors.pallete.link
+    },
+    findControls: {
+        width: '90%',
+        height: 50,
+        marginHorizontal: '5%',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+    },
+    optionContainer: {
+        height: 40,
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    optionText: {
+        fontSize: 12.5,
+        fontWeight: 'bold',
+        fontFamily: 'Basement-Grotesque',
+        letterSpacing: 0.25,
+        marginHorizontal: 15,
+    },
+    dot: {
+        width: 7,
+        height: 7,
+        borderRadius: 50,
+        position: 'absolute',
+        marginTop: 22,
+        backgroundColor: Colors.pallete.primary,
+    },
+    postList: {
+        width: '90%',
+        marginHorizontal: '5%',
+        marginBottom: Platform.OS === "ios" ? 32 : 40
     }
 })
 
