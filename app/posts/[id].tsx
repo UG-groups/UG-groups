@@ -1,6 +1,8 @@
-import { Image, Pressable, StyleSheet } from 'react-native';
+import { Image, Pressable, Platform, StyleSheet } from 'react-native';
 import { View, Text, ScrollView } from '../../components/Themed';
 import { useRouter } from 'expo-router';
+//* UI comps.
+import BackButton from '../../components/atoms/BackButton';
 //* Styling
 import Colors from '../../constants/Colors';
 
@@ -9,6 +11,9 @@ export default function PostScreen(){
 
     return(
         <ScrollView style={styles.container}>
+            <View style={styles.btnContainer}>
+                <BackButton />
+            </View>
             <Image style={styles.hero} source={require('../../assets/images/model_1.png')} />
             <Pressable style={styles.userContainer} onPress={() => router.push('/user/1')}>
                 <Image style={styles.userImage} source={require('../../assets/images/queens_gambit.png')} />
@@ -34,6 +39,13 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 250,
         resizeMode: 'cover'
+    },
+    btnContainer: {
+        position: 'absolute',
+        zIndex: 1,
+        marginTop: Platform.OS === "ios" ? '12%' : '10%',
+        marginLeft: '5%',
+        backgroundColor: 'transparent',
     },
     userContainer: {
         flexDirection: 'row',
