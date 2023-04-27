@@ -42,7 +42,7 @@ function HeadContent(){
                 <View style={styles.gradient}>
                     <View style={{ width: '80%', backgroundColor: "transparent", transform: [{ translateY: -40 }] }}>
                         <Text style={styles.groupName}>Jane Lane</Text>
-                        <Text style={styles.career}>Lic. Artes Visuales</Text>
+                        <Text style={styles.career}>Lic. Comercio Internacional</Text>
                     </View>
                     <View style={{ backgroundColor: "transparent", transform: [{ translateY: -20 }] }}>
                         <Text style={styles.groupDescription}>Estudiante de dia, ajedrecista de tarde</Text>

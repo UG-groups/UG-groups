@@ -76,7 +76,7 @@ function PostController(){
                 <MotiText 
                     style={[styles.optionText, { color: active === 'recents' ? '#fff' : Colors.pallete.inactive }]}
                 >
-                    Recientes
+                    Novedades
                 </MotiText>
                 {active === 'recents' && <DotSelector selector={active} />}
             </Pressable>
