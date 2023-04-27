@@ -1,4 +1,4 @@
-import { Image, Pressable, Platform, StyleSheet } from 'react-native';
+import { Image, Pressable, TextInput, Platform, StyleSheet } from 'react-native';
 import { View, Text, ScrollView } from '../../components/Themed';
 import { useRouter } from 'expo-router';
 //* UI comps.
@@ -11,7 +11,8 @@ export default function PostScreen(){
     const router = useRouter();
 
     return(
-        <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+        <>
+                    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
             <View style={styles.btnContainer}>
                 <BackButton />
             </View>
@@ -37,6 +38,20 @@ export default function PostScreen(){
                 <CommentCard />
             </View>
         </ScrollView>
+        <TextBox />
+        </>
+    )
+}
+
+function TextBox(){
+    return(
+        <View style={styles.inputContainer}>
+            <TextInput 
+                style={styles.input} 
+                placeholder="Escribe un comentario..."
+                placeholderTextColor={Colors.pallete.inactive}
+            />
+        </View>
     )
 }
 
@@ -97,5 +112,19 @@ const styles = StyleSheet.create({
         marginHorizontal: '2.5%',
         marginTop: 15,
         marginBottom: Platform.OS === 'ios' ? 32 : 40
+    },
+    inputContainer: {
+        width: '95%',
+        marginHorizontal: '2.5%',
+        marginBottom: 20
+    },
+    input: {
+        width: '100%',
+        height: 45,
+        paddingHorizontal: 15,
+        borderRadius: 14,
+        fontFamily: 'Montserrat-Medium',
+        color: Colors.dark.text,
+        backgroundColor: Colors.pallete.lightDark,
     }
 })

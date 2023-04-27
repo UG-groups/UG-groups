@@ -24,6 +24,7 @@ export default {
     gray: '#666666',
     lightGray: '#B1B1B1',
     inactive:  '#666666',
-    link: '#1EAEFF'
+    link: '#1EAEFF',
+    lightDark: '#373A3F'
   }
 };
