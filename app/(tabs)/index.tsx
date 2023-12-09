@@ -23,17 +23,13 @@ export default function TabOneScreen() {
       <Header />
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
-          <Post name={"Omar Purata"} studyField={"LSIA"} />
+          <Post name={"Casandra Cruz"} studyField={"Letras Españolas"} />
           <View ref={(ref) => (startAncestor = nodeFromRef(ref))}>
             <SharedElement onNode={(node) => (startNode = node)}>
               <ImagePost image={"https://picsum.photos/id/74/200/300"} />
             </SharedElement>
           </View>
-          <Post
-            avatar={"0"}
-            name={"Alba Hernández"}
-            studyField={"Comercio Internacional"}
-          />
+          <Post avatar={"0"} name={"Omar Purata"} studyField={"Economía"} />
           <Post name={"Emilia Carranza"} studyField={"Lic. en Economía"} />
           <ImagePost image={"https://picsum.photos/id/64/200/300"} />
           <Post name={"Emilia Carranza"} studyField={"Lic. en Economía"} />
