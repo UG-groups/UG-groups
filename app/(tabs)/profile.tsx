@@ -72,9 +72,9 @@ function Posts(){
         Publicaciones
       </Text>
       <View>
-        <Post />
-        <Post />
-        <Post />
+        <Post avatar={"0"} name={"Emilia Carranza"} studyField={"Economía"}  />
+        <Post avatar={"0"} name={"Emilia Carranza"} studyField={"Economía"} />
+        <Post avatar={"0"} name={"Emilia Carranza"} studyField={"Economía"} />
       </View>
     </View>
   )

@@ -6,22 +6,29 @@ import VoteButton from '../atoms/VoteButton';
 //* Styling
 import Colors from '../../constants/Colors';
 
-export default function Post() {
+interface IUser {
+    name: string;
+    studyField: string;
+    avatar?: string;
+}
+
+export default function Post({ avatar, name, studyField }: IUser) {
     const router = useRouter();
 
     return(
         <View style={styles.container}>
             <View style={styles.content}>
                 <Pressable style={styles.userSection} onPress={() => router.push("/user/1")}>
-                    <Image style={styles.userImage} source={require('../../assets/images/queens_gambit.png')} />
+                    <Image style={styles.userImage} source={avatar === '0' ? require('../../assets/images/avatar.png') : require('../../assets/images/queens_gambit.png')} />
                     <View style={styles.userInfo}>
-                        <Text style={styles.userName}>Jane Lane</Text>
-                        <Text style={styles.studyField}>Comercio Internacional</Text>
+                        <Text style={styles.userName}>{name}</Text>
+                        <Text style={styles.studyField}>{studyField}</Text>
                     </View>
                 </Pressable>
                 <View style={styles.postTextContainer}>
                     <Text style={styles.postText}>
-                        Abro discusión sobre el arte generado por inteligencia artificial 🤖
+                        Los invito a participar en el grupo de estudio de Economía Política.
+                        no se preocupen si son nuevos en el tema, el grupo está abierto a todos.
                     </Text>
                 </View>
                 <View style={styles.postControls}>

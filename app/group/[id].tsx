@@ -22,10 +22,10 @@ export default function Group() {
             <ScrollView>
                 <PostController />
                 <View style={styles.postList}>
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
+                    <Post name={"Emilia Carranza"} studyField={"Economía"} />
+                    <Post name={"Emilia Carranza"} studyField={"Economía"} />
+                    <Post name={"Emilia Carranza"} studyField={"Economía"} />
+                    <Post name={"Emilia Carranza"} studyField={"Economía"} />
                 </View>
             </ScrollView>
         </View>

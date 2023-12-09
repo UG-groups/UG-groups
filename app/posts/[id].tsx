@@ -1,6 +1,11 @@
 import { Image, Pressable, TextInput } from 'react-native';
 import { View, Text, ScrollView } from '../../components/Themed';
-import { useRouter } from 'expo-router';
+import { useRouter, useSearchParams } from 'expo-router';
+import {
+    SharedElement,
+    SharedElementTransition,
+    nodeFromRef
+} from 'react-native-shared-element';
 //* UI comps.
 import BackButton from '../../components/atoms/BackButton';
 import CommentCard from '../../components/molecules/CommentCard';
@@ -10,6 +15,9 @@ import Colors from '../../constants/Colors';
 
 export default function PostScreen(){
     const router = useRouter();
+    //const { imageURL } = useSearchParams();
+    let endAncestor;
+    let endNode;
 
     return(
         <>
@@ -17,7 +25,11 @@ export default function PostScreen(){
                 <View style={styles.btnContainer}>
                     <BackButton />
                 </View>
-                <Image style={styles.hero} source={require('../../assets/images/model_1.png')} />
+                <View ref={ref => endAncestor = nodeFromRef(ref)}>
+                    <SharedElement onNode={node => endNode = node}>
+                        <Image style={styles.hero} source={require('../../assets/images/model_1.png')} />
+                    </SharedElement>
+                </View>
                 <Pressable style={styles.userContainer} onPress={() => router.push('/user/1')}>
                     <Image style={styles.userImage} source={require('../../assets/images/queens_gambit.png')} />
                     <View style={styles.userInfo}>
@@ -39,7 +51,9 @@ export default function PostScreen(){
                     <CommentCard />
                 </View>
             </ScrollView>
-            <TextBox />
+            <View>
+                <TextBox />
+            </View>
         </>
     )
 }

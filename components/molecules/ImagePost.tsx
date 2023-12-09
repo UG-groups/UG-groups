@@ -10,8 +10,8 @@ export default function ImagePost({ image }: { image: string }) {
     const router = useRouter();
 
     return(
-        <Pressable style={styles.container} onPress={() => router.push("/posts/1")}>
-            <Image style={styles.image} source={{ uri: image }} />
+        <Pressable style={styles.container} onPress={() => router.push("/posts/1/")}>
+            <Image style={styles.image} source={require("../../assets/images/model_4.png")} />
             <View style={styles.content}>
                 <Pressable style={styles.userSection} onPress={() => router.push("/user/1")}>
                     <Image style={styles.userImage} source={require('../../assets/images/ben.jpeg')} />
