@@ -1,5 +1,7 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 import Colors from "../../constants/Colors";
+
+const screenHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
     container: {
@@ -13,8 +15,8 @@ const styles = StyleSheet.create({
     },
     header: {
         width: '100%',
-        height: 330,
         justifyContent: 'space-between',
+        zIndex: -1
     },
     profileImage: {
         width: '100%',
