@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Dimensions,
 } from "react-native";
+import { Feather } from "@expo/vector-icons";
 //* Styling
 import Colors from "../../constants/Colors";
 
@@ -40,7 +41,7 @@ const DATA = [
   },
 ];
 
-export default function GroupBox() {
+export default function GroupBox({ isAdmin }: { isAdmin: boolean }) {
   return (
     <Pressable style={styles.container} onPress={() => console.log("Group")}>
       <View style={styles.content}>
@@ -53,6 +54,7 @@ export default function GroupBox() {
           keyExtractor={(item) => item.id}
           scrollEnabled={false}
         />
+        {isAdmin ? <CrateGroupCircle /> : <AllGroupsCircle />}
       </View>
     </Pressable>
   );
@@ -63,7 +65,33 @@ function Box({ img, title }: { img: any; title: string }) {
     <View style={styles.boxContainer}>
       <Image style={styles.imgGroup} source={img} />
       <Text style={[styles.textLine, { color: "#fff", fontSize: 9 }]}>
-        {title.length > 10 ? `${title.slice(0, 10)}...` : title}
+        {title.length > 10 ? `${title.slice(0, 10)}..` : title}
+      </Text>
+    </View>
+  );
+}
+
+function AllGroupsCircle() {
+  return (
+    <View style={{ flexDirection: "column", alignItems: "center" }}>
+      <View style={styles.allGroups}>
+        <Feather name="arrow-right" size={24} color="#fff" />
+      </View>
+      <Text style={[styles.textLine, { color: "#fff", fontSize: 9 }]}>
+        Ver todos
+      </Text>
+    </View>
+  );
+}
+
+function CrateGroupCircle() {
+  return (
+    <View style={{ flexDirection: "column", alignItems: "center" }}>
+      <View style={styles.allGroups}>
+        <Feather name="plus" size={24} color="#fff" />
+      </View>
+      <Text style={[styles.textLine, { color: "#fff", fontSize: 9 }]}>
+        Crear otro
       </Text>
     </View>
   );
@@ -77,7 +105,7 @@ const styles = StyleSheet.create({
   },
   content: {
     height: 90,
-    width: width * 0.9,
+    width: width * 0.95,
     paddingHorizontal: 10,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -87,13 +115,14 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    marginHorizontal: 5,
   },
   imgGroup: {
-    width: 42,
-    height: 42,
+    width: 40,
+    height: 40,
     borderRadius: 50,
     borderColor: "#3F3F45",
-    borderWidth: 2,
+    borderWidth: 1,
   },
   textLine: {
     fontSize: 10,
@@ -101,5 +130,15 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10,
     color: Colors.pallete.primary,
+  },
+  allGroups: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: "#fff",
   },
 });

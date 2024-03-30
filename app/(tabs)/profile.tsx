@@ -1,11 +1,11 @@
-import { Pressable, Image, StyleSheet } from "react-native";
+import { Pressable, Image, StyleSheet, Dimensions } from "react-native";
 import { Text, View, SafeAreaView, ScrollView } from "../../components/Themed";
 import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
 //* UI comps.
 import GroupBox from "../../components/atoms/GroupBox";
 import Post from "../../components/molecules/Post";
 
-import Colors from "../../constants/Colors";
+const { height } = Dimensions.get("window");
 
 export default function Profile() {
   return (
@@ -38,26 +38,32 @@ function Header() {
 
 function ProfileInfo() {
   return (
-    <View style={styles.profileContent}>
+    <>
       <Image
-        style={styles.avatar}
-        source={require("../../assets/images/fer.jpeg")}
+        style={styles.profileBackground}
+        source={require("../../assets/images/background_pattern.jpeg")}
       />
-      <View>
-        <Text style={styles.userName}>Fernando Contreras</Text>
-        <Text style={styles.nickName}>corahama@ugto.mx</Text>
+      <View style={styles.profileContent}>
+        <Image
+          style={styles.avatar}
+          source={require("../../assets/images/fer.jpeg")}
+        />
+        <View>
+          <Text style={styles.userName}>Fernando Contreras</Text>
+          <Text style={styles.nickName}>corahama@ugto.mx</Text>
+        </View>
+        <View style={{ marginVertical: 10, width: "80%" }}>
+          <Text style={styles.description}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut
+            enim cursus, vulputate nibh nec, fringilla risus.
+          </Text>
+        </View>
+        <View>
+          <Text style={styles.degree}>Lic. Sistemas de Información</Text>
+          <Text style={styles.division}>DCEA</Text>
+        </View>
       </View>
-      <View style={{ marginVertical: 10, width: "80%" }}>
-        <Text style={styles.description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut enim
-          cursus, vulputate nibh nec, fringilla risus.
-        </Text>
-      </View>
-      <View>
-        <Text style={styles.degree}>Lic. Sistemas de Información</Text>
-        <Text style={styles.division}>DCEA</Text>
-      </View>
-    </View>
+    </>
   );
 }
 
@@ -66,7 +72,11 @@ function Categories() {
     <View style={styles.categories}>
       <View style={{ flexDirection: "column" }}>
         <Text style={styles.categoryTitle}>Grupos que sigues</Text>
-        <GroupBox />
+        <GroupBox isAdmin={false} />
+      </View>
+      <View style={{ flexDirection: "column", marginTop: 15 }}>
+        <Text style={styles.categoryTitle}>Grupos que administras</Text>
+        <GroupBox isAdmin />
       </View>
     </View>
   );
@@ -107,7 +117,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     paddingVertical: 10,
-    paddingHorizontal: "5%",
+    paddingHorizontal: "2.5%",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -116,8 +126,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: "Basement-Grotesque",
   },
+  profileBackground: {
+    width: "100%",
+    height: height / 7,
+    opacity: 0.85,
+  },
   profileContent: {
-    height: 220,
+    height: 140,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -125,6 +140,8 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
+    borderWidth: 3,
+    borderColor: "#000",
     marginVertical: 10,
   },
   userName: {
@@ -156,9 +173,9 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat-SemiBold",
   },
   categories: {
-    marginTop: 50,
-    marginHorizontal: "5%",
-    flexDirection: "row",
+    marginTop: 85,
+    marginHorizontal: "2.5%",
+    flexDirection: "column",
     justifyContent: "space-between",
   },
   categoryTitle: {
@@ -168,6 +185,6 @@ const styles = StyleSheet.create({
   },
   posts: {
     marginVertical: 15,
-    paddingHorizontal: "5%",
+    paddingHorizontal: "2.5%",
   },
 });

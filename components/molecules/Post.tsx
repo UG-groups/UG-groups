@@ -18,23 +18,38 @@ export default function Post({ avatar, name, studyField }: IUser) {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Pressable
-          style={styles.userSection}
-          onPress={() => router.push("/user/1")}
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            paddingRight: "4%",
+          }}
         >
-          <Image
-            style={styles.userImage}
-            source={
-              avatar === "0"
-                ? require("../../assets/images/fer.jpeg")
-                : require("../../assets/images/jane.png")
-            }
-          />
-          <View style={styles.userInfo}>
-            <Text style={styles.userName}>{name}</Text>
-            <Text style={styles.studyField}>{studyField}</Text>
-          </View>
-        </Pressable>
+          <Pressable
+            style={styles.userSection}
+            onPress={() => router.push("/user/1")}
+          >
+            <Image
+              style={styles.userImage}
+              source={
+                avatar === "0"
+                  ? require("../../assets/images/cassy.jpeg")
+                  : require("../../assets/images/jane.png")
+              }
+            />
+            <View style={styles.userInfo}>
+              <Text style={styles.userName}>{name}</Text>
+              <Text style={styles.studyField}>{studyField}</Text>
+            </View>
+          </Pressable>
+          <Pressable
+            style={[styles.badgeContainer, { backgroundColor: "#FF7E36" }]}
+            onPress={() => router.push("/group/1")}
+          >
+            <Text style={styles.badgeText}>Campus DCEA</Text>
+          </Pressable>
+        </View>
         <View style={styles.postTextContainer}>
           <Text style={styles.postText}>
             Los invito a participar en el grupo de estudio de Economía Política.
@@ -107,6 +122,19 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: Colors.pallete.lightGray,
   },
+  badgeContainer: {
+    height: 25,
+    paddingHorizontal: 9,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 50,
+  },
+  badgeText: {
+    fontFamily: "Montserrat-Medium",
+    textAlign: "center",
+    fontSize: 9,
+    color: "#fff",
+  },
   postTextContainer: {
     paddingHorizontal: "5%",
     paddingVertical: 15,
@@ -122,9 +150,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   postText: {
-    fontSize: 12,
+    fontSize: 14,
     color: Colors.dark.text,
-    fontFamily: "Montserrat-Medium",
+    fontFamily: "Montserrat-Regular",
   },
   upvote: {
     flexDirection: "row",
