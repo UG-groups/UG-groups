@@ -5,12 +5,14 @@ import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
 import GroupBox from "../../components/atoms/GroupBox";
 import Post from "../../components/molecules/Post";
 
+import Colors from "../../constants/Colors";
+
 export default function Profile() {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={{ paddingBottom: 65 }}>
+      <ScrollView>
+        <View style={{ paddingTop: 30, paddingBottom: 65 }}>
           <ProfileInfo />
           <Categories />
           <Posts />
@@ -43,9 +45,15 @@ function ProfileInfo() {
       />
       <View>
         <Text style={styles.userName}>Fernando Contreras</Text>
-        <Text style={styles.nickName}>corahama</Text>
+        <Text style={styles.nickName}>corahama@ugto.mx</Text>
       </View>
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginVertical: 10, width: "80%" }}>
+        <Text style={styles.description}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut enim
+          cursus, vulputate nibh nec, fringilla risus.
+        </Text>
+      </View>
+      <View>
         <Text style={styles.degree}>Lic. Sistemas de Información</Text>
         <Text style={styles.division}>DCEA</Text>
       </View>
@@ -125,25 +133,31 @@ const styles = StyleSheet.create({
     fontFamily: "Basement-Grotesque",
   },
   nickName: {
-    fontSize: 11,
+    fontSize: 12,
     textAlign: "center",
     fontFamily: "Montserrat-SemiBold",
   },
+  description: {
+    fontSize: 14,
+    textAlign: "center",
+    fontFamily: "Montserrat-SemiBold",
+    color: "#ddd",
+  },
   degree: {
-    fontSize: 11,
+    fontSize: 12,
     textAlign: "center",
     color: "rgba(255,255,255,0.6)",
     fontFamily: "Montserrat-SemiBold",
   },
   division: {
-    fontSize: 11,
+    fontSize: 12,
     textAlign: "center",
     color: "rgba(255,255,255,0.6)",
     fontFamily: "Montserrat-SemiBold",
   },
   categories: {
-    marginVertical: 20,
-    paddingHorizontal: "5%",
+    marginTop: 50,
+    marginHorizontal: "5%",
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -153,7 +167,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   posts: {
-    marginVertical: 10,
+    marginVertical: 15,
     paddingHorizontal: "5%",
   },
 });
