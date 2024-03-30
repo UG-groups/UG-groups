@@ -26,5 +26,6 @@ export default {
     inactive: "#666666",
     link: "#1EAEFF",
     lightDark: "#373A3F",
+    honey: "#FCC842",
   },
 };
