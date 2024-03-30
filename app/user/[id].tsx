@@ -2,7 +2,6 @@ import { Pressable, Image, StyleSheet, Dimensions } from "react-native";
 import { Text, View, SafeAreaView, ScrollView } from "../../components/Themed";
 import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
 //* UI comps.
-import GroupBox from "../../components/atoms/GroupBox";
 import Post from "../../components/molecules/Post";
 
 const { height } = Dimensions.get("window");
@@ -13,7 +12,6 @@ export default function Profile() {
       <ScrollView>
         <View style={{ paddingTop: 30, paddingBottom: 65 }}>
           <ProfileInfo />
-          <Categories />
           <Posts />
         </View>
       </ScrollView>
@@ -62,21 +60,6 @@ function ProfileInfo() {
         </View>
       </View>
     </>
-  );
-}
-
-function Categories() {
-  return (
-    <View style={styles.categories}>
-      <View style={{ flexDirection: "column" }}>
-        <Text style={styles.categoryTitle}>Grupos que sigues</Text>
-        <GroupBox isAdmin={false} />
-      </View>
-      <View style={{ flexDirection: "column", marginTop: 15 }}>
-        <Text style={styles.categoryTitle}>Grupos que administras</Text>
-        <GroupBox isAdmin />
-      </View>
-    </View>
   );
 }
 
@@ -170,19 +153,13 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,0.6)",
     fontFamily: "Montserrat-SemiBold",
   },
-  categories: {
-    marginTop: 85,
-    marginHorizontal: "2.5%",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  },
   categoryTitle: {
     fontFamily: "Basement-Grotesque",
-    marginTop: 5,
-    marginBottom: 15,
+    marginVertical: 10,
   },
   posts: {
-    marginVertical: 15,
+    marginTop: 60,
+    marginBottom: 15,
     paddingHorizontal: "2.5%",
   },
 });
