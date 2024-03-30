@@ -34,7 +34,7 @@ export default function Post({ avatar, name, studyField }: IUser) {
               style={styles.userImage}
               source={
                 avatar === "0"
-                  ? require("../../assets/images/purata.jpeg")
+                  ? require("../../assets/images/cassy.jpeg")
                   : require("../../assets/images/jane.png")
               }
             />
@@ -45,6 +45,7 @@ export default function Post({ avatar, name, studyField }: IUser) {
           </Pressable>
           <Pressable
             style={[styles.badgeContainer, { backgroundColor: "#FF7E36" }]}
+            onPress={() => router.push("/group/1")}
           >
             <Text style={styles.badgeText}>Campus DCEA</Text>
           </Pressable>
@@ -149,9 +150,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   postText: {
-    fontSize: 12,
+    fontSize: 14,
     color: Colors.dark.text,
-    fontFamily: "Montserrat-Medium",
+    fontFamily: "Montserrat-Regular",
   },
   upvote: {
     flexDirection: "row",

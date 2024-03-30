@@ -1,6 +1,7 @@
 import { Pressable, Image, StyleSheet, Dimensions } from "react-native";
 import { Text, View, SafeAreaView, ScrollView } from "../../components/Themed";
-import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 //* UI comps.
 import Post from "../../components/molecules/Post";
 
@@ -20,22 +21,19 @@ export default function Profile() {
 }
 
 function Header() {
+  const router = useRouter();
+
   return (
-    <View style={styles.headerContainer}>
-      <Pressable>
-        <MaterialCommunityIcons name="account-edit" size={26} color="#fff" />
-      </Pressable>
-      <Text style={styles.headerTitle}>Perfil</Text>
-      <Pressable>
-        <Entypo name="dots-three-horizontal" size={24} color="#fff" />
-      </Pressable>
-    </View>
+    <Pressable style={styles.arrowContainer} onPress={() => router.back()}>
+      <Feather name="arrow-left" size={28} color="#fff" />
+    </Pressable>
   );
 }
 
 function ProfileInfo() {
   return (
     <>
+      <Header />
       <Image
         style={styles.profileBackground}
         source={require("../../assets/images/background_pattern.jpeg")}
@@ -54,9 +52,15 @@ function ProfileInfo() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Text>
         </View>
-        <View>
-          <Text style={styles.degree}>Lic. Letras Españolas</Text>
-          <Text style={styles.division}>DCSH</Text>
+        <View
+          style={{
+            width: "100%",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
+          <Text style={styles.degree}>Lic. Letras Españolas |</Text>
+          <Text style={styles.division}> DCSH</Text>
         </View>
       </View>
     </>
@@ -70,18 +74,18 @@ function Posts() {
       <View>
         <Post
           avatar={"0"}
-          name={"Omar Purata"}
-          studyField={"omar.purata@ugto.mx"}
+          name={"Casandra Cruz"}
+          studyField={"c.cruz@ugto.mx"}
         />
         <Post
           avatar={"0"}
-          name={"Omar Purata"}
-          studyField={"omar.purata@ugto.mx"}
+          name={"Casandra Cruz"}
+          studyField={"c.cruz@ugto.mx"}
         />
         <Post
           avatar={"0"}
-          name={"Omar Purata"}
-          studyField={"omar.purata@ugto.mx"}
+          name={"Casandra Cruz"}
+          studyField={"c.cruz@ugto.mx"}
         />
       </View>
     </View>
@@ -95,6 +99,19 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
+  },
+  arrowContainer: {
+    width: 42,
+    height: 42,
+    borderRadius: 50,
+    backgroundColor: "rgba(0,0,0,0.3)",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    zIndex: 99,
+    top: 30,
+    left: 10,
   },
   headerContainer: {
     paddingVertical: 10,
