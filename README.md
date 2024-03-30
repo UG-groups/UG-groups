@@ -6,11 +6,11 @@ Puedes descargar y visitar el sitio aquí:
 
 - **Android: [Play Store](https://play.google.com/store/apps/)**
 - **iOS: [App Store](https://apps.apple.com/us/app/)**
-- **Web: [bsky.app](https://uggroups.com)**
+- **Web: [uggroups.com](https://uggroups.com)**
 
 ## Recursos para el desarrollo
 
-Está es una aplicación construida en [React Native](https://reactnative.dev/) y escrita en el lenguaje de programación TypeScript. y este es únicamente el cliente móvil y web, el código fuente del backend también es open source pero se encuentra [en un repositorio distinto](https://github.com/ug-groups/server).
+Está es una aplicación construida en [React Native](https://reactnative.dev/) y escrita en el lenguaje de programación TypeScript. y este es únicamente el cliente móvil y web, el código fuente del backend también es open source pero se encuentra [en un repositorio distinto](https://github.com/UG-groups/UG-Groups-backend).
 
 ## Contribuciones
 
