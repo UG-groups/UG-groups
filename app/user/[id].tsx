@@ -1,132 +1,188 @@
-import React from "react";
-import { Image, Pressable } from "react-native";
-import { Text, View, ScrollView } from "../../components/Themed";
-import { LinearGradient } from "expo-linear-gradient";
-import { MotiView, MotiText } from "moti";
+import { Pressable, Image, StyleSheet, Dimensions } from "react-native";
+import { Text, View, SafeAreaView, ScrollView } from "../../components/Themed";
+import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
 //* UI comps.
-import BackButton from "../../components/atoms/BackButton";
-import FollowButton from "../../components/atoms/FollowButton";
+import GroupBox from "../../components/atoms/GroupBox";
 import Post from "../../components/molecules/Post";
-//* Styling
-import styles from "./styles";
-import Colors from "../../constants/Colors";
+
+const { height } = Dimensions.get("window");
 
 export default function Profile() {
   return (
-    <View style={styles.container}>
-      <HeadContent />
-      <View style={styles.body}>
-        <FollowButton type="user" />
-      </View>
+    <SafeAreaView style={styles.container}>
       <ScrollView>
-        <PostController />
-        <View style={styles.postList}>
-          <Post avatar="1" name={"Emilia Carranza"} studyField={"Economía"} />
-          <Post
-            avatar="0"
-            name={"Fernando Contreras"}
-            studyField={"Economía"}
-          />
-          <Post avatar="1" name={"Emilia Carranza"} studyField={"Economía"} />
-          <Post avatar="1" name={"Emilia Carranza"} studyField={"Economía"} />
+        <View style={{ paddingTop: 30, paddingBottom: 65 }}>
+          <ProfileInfo />
+          <Categories />
+          <Posts />
         </View>
       </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+function Header() {
+  return (
+    <View style={styles.headerContainer}>
+      <Pressable>
+        <MaterialCommunityIcons name="account-edit" size={26} color="#fff" />
+      </Pressable>
+      <Text style={styles.headerTitle}>Perfil</Text>
+      <Pressable>
+        <Entypo name="dots-three-horizontal" size={24} color="#fff" />
+      </Pressable>
     </View>
   );
 }
 
-function HeadContent() {
+function ProfileInfo() {
   return (
-    <View style={styles.header}>
-      <View style={styles.btnContainer}>
-        <BackButton />
-      </View>
+    <>
       <Image
-        style={styles.profileImage}
-        source={require("../../assets/images/cassy.jpeg")}
+        style={styles.profileBackground}
+        source={require("../../assets/images/background_pattern.jpeg")}
       />
-      <View style={styles.headerContent}>
-        <View style={styles.gradient}>
-          <View
-            style={{
-              width: "80%",
-              backgroundColor: "transparent",
-              transform: [{ translateY: -40 }],
-            }}
-          >
-            <Text style={styles.groupName}>Casandra Cruz</Text>
-            <Text style={styles.career}>Lic. Letras Españolas</Text>
-          </View>
-          <View
-            style={{
-              backgroundColor: "transparent",
-              transform: [{ translateY: -20 }],
-            }}
-          >
-            <Text style={styles.groupDescription}>
-              Il faut cultiver ton jardin.
-            </Text>
-          </View>
-          <LinearGradient
-            start={{ x: 0, y: 0.5 }}
-            end={{ x: 0, y: 0.5 }}
-            colors={["rgba(0,0,0,0.3)", "#000"]}
-            style={{ height: 30 }}
-          />
+      <View style={styles.profileContent}>
+        <Image
+          style={styles.avatar}
+          source={require("../../assets/images/cassy.jpeg")}
+        />
+        <View>
+          <Text style={styles.userName}>Casandra Cruz</Text>
+          <Text style={styles.nickName}>c.cruz@ugto.mx</Text>
+        </View>
+        <View style={{ marginVertical: 10, width: "80%" }}>
+          <Text style={styles.description}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </Text>
+        </View>
+        <View>
+          <Text style={styles.degree}>Lic. Letras Españolas</Text>
+          <Text style={styles.division}>DCSH</Text>
         </View>
       </View>
+    </>
+  );
+}
+
+function Categories() {
+  return (
+    <View style={styles.categories}>
+      <View style={{ flexDirection: "column" }}>
+        <Text style={styles.categoryTitle}>Grupos que sigues</Text>
+        <GroupBox isAdmin={false} />
+      </View>
+      <View style={{ flexDirection: "column", marginTop: 15 }}>
+        <Text style={styles.categoryTitle}>Grupos que administras</Text>
+        <GroupBox isAdmin />
+      </View>
     </View>
   );
 }
 
-function PostController() {
-  const [active, setActive] = React.useState("recents");
-
-  const handleActive = (option: string) => {
-    setActive(option);
-  };
-
+function Posts() {
   return (
-    <View style={styles.findControls}>
-      <Pressable
-        style={styles.optionContainer}
-        onPress={() => handleActive("recents")}
-      >
-        <MotiText
-          style={[
-            styles.optionText,
-            { color: active === "recents" ? "#fff" : Colors.pallete.inactive },
-          ]}
-        >
-          Recientes
-        </MotiText>
-        {active === "recents" && <DotSelector selector={active} />}
-      </Pressable>
-      <Pressable
-        style={styles.optionContainer}
-        onPress={() => handleActive("posts")}
-      >
-        <MotiText
-          style={[
-            styles.optionText,
-            { color: active === "posts" ? "#fff" : Colors.pallete.inactive },
-          ]}
-        >
-          Publicaciones
-        </MotiText>
-        {active === "posts" && <DotSelector selector={active} />}
-      </Pressable>
+    <View style={styles.posts}>
+      <Text style={styles.categoryTitle}>Publicaciones</Text>
+      <View>
+        <Post
+          avatar={"0"}
+          name={"Fernando Contreras"}
+          studyField={"Sistemas de Información Administrativa"}
+        />
+        <Post
+          avatar={"0"}
+          name={"Fernando Contreras"}
+          studyField={"Sistemas de Información Administrativa"}
+        />
+        <Post
+          avatar={"0"}
+          name={"Fernando Contreras"}
+          studyField={"Sistemas de Información Administrativa"}
+        />
+      </View>
     </View>
   );
 }
 
-function DotSelector({ selector }: { selector: string }) {
-  return (
-    <MotiView
-      style={styles.dot}
-      from={{ transform: [{ translateX: selector === "recents" ? 90 : -90 }] }}
-      animate={{ transform: [{ translateX: 0 }] }}
-      transition={{ type: "spring" }}
-    ></MotiView>
-  );
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  headerContainer: {
+    paddingVertical: 10,
+    paddingHorizontal: "2.5%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  headerTitle: {
+    fontSize: 15,
+    fontFamily: "Basement-Grotesque",
+  },
+  profileBackground: {
+    width: "100%",
+    height: height / 7,
+    opacity: 0.85,
+  },
+  profileContent: {
+    height: 140,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  avatar: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 3,
+    borderColor: "#000",
+    marginVertical: 10,
+  },
+  userName: {
+    fontSize: 16,
+    textAlign: "center",
+    fontFamily: "Basement-Grotesque",
+  },
+  nickName: {
+    fontSize: 12,
+    textAlign: "center",
+    fontFamily: "Montserrat-SemiBold",
+  },
+  description: {
+    fontSize: 14,
+    textAlign: "center",
+    fontFamily: "Montserrat-SemiBold",
+    color: "#ddd",
+  },
+  degree: {
+    fontSize: 12,
+    textAlign: "center",
+    color: "rgba(255,255,255,0.6)",
+    fontFamily: "Montserrat-SemiBold",
+  },
+  division: {
+    fontSize: 12,
+    textAlign: "center",
+    color: "rgba(255,255,255,0.6)",
+    fontFamily: "Montserrat-SemiBold",
+  },
+  categories: {
+    marginTop: 85,
+    marginHorizontal: "2.5%",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+  categoryTitle: {
+    fontFamily: "Basement-Grotesque",
+    marginTop: 5,
+    marginBottom: 15,
+  },
+  posts: {
+    marginVertical: 15,
+    paddingHorizontal: "2.5%",
+  },
+});
