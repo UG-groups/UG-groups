@@ -57,11 +57,7 @@ function Categories() {
   return (
     <View style={styles.categories}>
       <View style={{ flexDirection: "column" }}>
-        <Text style={styles.categoryTitle}>Grupos</Text>
-        <GroupBox />
-      </View>
-      <View style={{ flexDirection: "column" }}>
-        <Text style={styles.categoryTitle}>Siguiendo</Text>
+        <Text style={styles.categoryTitle}>Grupos que sigues</Text>
         <GroupBox />
       </View>
     </View>

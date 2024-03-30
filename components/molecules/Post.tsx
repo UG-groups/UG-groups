@@ -27,7 +27,7 @@ export default function Post({ avatar, name, studyField }: IUser) {
             source={
               avatar === "0"
                 ? require("../../assets/images/fer.jpeg")
-                : require("../../assets/images/cassy.jpeg")
+                : require("../../assets/images/jane.png")
             }
           />
           <View style={styles.userInfo}>

@@ -22,7 +22,11 @@ export default function Profile() {
         <PostController />
         <View style={styles.postList}>
           <Post avatar="1" name={"Emilia Carranza"} studyField={"Economía"} />
-          <Post avatar="0" name={"Omar Purata"} studyField={"Economía"} />
+          <Post
+            avatar="0"
+            name={"Fernando Contreras"}
+            studyField={"Economía"}
+          />
           <Post avatar="1" name={"Emilia Carranza"} studyField={"Economía"} />
           <Post avatar="1" name={"Emilia Carranza"} studyField={"Economía"} />
         </View>

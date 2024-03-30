@@ -16,23 +16,23 @@ const screenHeight = Dimensions.get("window").height;
 export default function TabOneScreen() {
   let startAncestor;
   let startNode;
-  const position = new Animated.Value(0);
+  //const position = new Animated.Value(0);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ paddingTop: "10%" }}>
       <Header />
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           <Post name={"Casandra Cruz"} studyField={"Letras Españolas"} />
-          <View ref={(ref) => (startAncestor = nodeFromRef(ref))}>
+          <View>
             <SharedElement onNode={(node) => (startNode = node)}>
               <ImagePost image={"https://picsum.photos/id/74/200/300"} />
             </SharedElement>
           </View>
           <Post avatar={"0"} name={"Omar Purata"} studyField={"Economía"} />
-          <Post name={"Emilia Carranza"} studyField={"Lic. en Economía"} />
+          <Post name={"Laura Carranza"} studyField={"Lic. en Economía"} />
           <ImagePost image={"https://picsum.photos/id/64/200/300"} />
-          <Post name={"Emilia Carranza"} studyField={"Lic. en Economía"} />
+          <Post name={"Laura Carranza"} studyField={"Lic. en Economía"} />
           <ImagePost image={"https://picsum.photos/id/1/200/300"} />
           <Post name={"Emilia Carranza"} studyField={"Lic. en Economía"} />
           <Post name={"Emilia Carranza"} studyField={"Lic. en Economía"} />

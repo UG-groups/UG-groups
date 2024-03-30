@@ -22,8 +22,12 @@ export default function Group() {
       <ScrollView>
         <PostController />
         <View style={styles.postList}>
-          <Post avatar="0" name={"Omar Purata"} studyField={"Economía"} />
-          <Post name={"Casandra Cruz"} studyField={"Letras Españolas"} />
+          <Post
+            avatar="0"
+            name={"Luis Contreras"}
+            studyField={"Sistemas de Información"}
+          />
+          <Post name={"Laura Carranza"} studyField={"Comercio Internacional"} />
           <Post name={"Emilia Carranza"} studyField={"Economía"} />
           <Post name={"Emilia Carranza"} studyField={"Economía"} />
         </View>
@@ -60,7 +64,7 @@ function HeadContent() {
             }}
           >
             <Text style={styles.groupDescription}>
-              Grupo oficial para todos los campus
+              Grupo oficial de ajedrecistas para todos los campus
             </Text>
             <View style={styles.linkSection}>
               <Ionicons name="link" size={16} color={Colors.dark.text} />
@@ -68,8 +72,6 @@ function HeadContent() {
             </View>
           </View>
           <LinearGradient
-            start={{ x: 0, y: 0.5 }}
-            end={{ x: 0, y: 0.5 }}
             colors={["rgba(0,0,0,0.3)", "#000"]}
             style={{ height: 30 }}
           />
