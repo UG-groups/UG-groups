@@ -41,7 +41,7 @@ const DATA = [
   },
 ];
 
-export default function GroupBox() {
+export default function GroupBox({ isAdmin }: { isAdmin: boolean }) {
   return (
     <Pressable style={styles.container} onPress={() => console.log("Group")}>
       <View style={styles.content}>
@@ -54,7 +54,7 @@ export default function GroupBox() {
           keyExtractor={(item) => item.id}
           scrollEnabled={false}
         />
-        <AllGroups />
+        {isAdmin ? <CrateGroupCircle /> : <AllGroupsCircle />}
       </View>
     </Pressable>
   );
@@ -71,7 +71,7 @@ function Box({ img, title }: { img: any; title: string }) {
   );
 }
 
-function AllGroups() {
+function AllGroupsCircle() {
   return (
     <View style={{ flexDirection: "column", alignItems: "center" }}>
       <View style={styles.allGroups}>
@@ -79,6 +79,19 @@ function AllGroups() {
       </View>
       <Text style={[styles.textLine, { color: "#fff", fontSize: 9 }]}>
         Ver todos
+      </Text>
+    </View>
+  );
+}
+
+function CrateGroupCircle() {
+  return (
+    <View style={{ flexDirection: "column", alignItems: "center" }}>
+      <View style={styles.allGroups}>
+        <Feather name="plus" size={24} color="#fff" />
+      </View>
+      <Text style={[styles.textLine, { color: "#fff", fontSize: 9 }]}>
+        Crear otro
       </Text>
     </View>
   );

@@ -72,7 +72,11 @@ function Categories() {
     <View style={styles.categories}>
       <View style={{ flexDirection: "column" }}>
         <Text style={styles.categoryTitle}>Grupos que sigues</Text>
-        <GroupBox />
+        <GroupBox isAdmin={false} />
+      </View>
+      <View style={{ flexDirection: "column", marginTop: 15 }}>
+        <Text style={styles.categoryTitle}>Grupos que administras</Text>
+        <GroupBox isAdmin />
       </View>
     </View>
   );
@@ -171,7 +175,7 @@ const styles = StyleSheet.create({
   categories: {
     marginTop: 85,
     marginHorizontal: "2.5%",
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "space-between",
   },
   categoryTitle: {
