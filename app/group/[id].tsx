@@ -55,7 +55,7 @@ function HeadContent() {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 backgroundColor: "transparent",
-                transform: [{ translateY: -40 }],
+                transform: [{ translateY: -50 }],
               }}
             >
               <Text style={styles.groupName}>Club de Ajedrez UG</Text>
@@ -66,26 +66,30 @@ function HeadContent() {
                 flexDirection: "column",
                 alignItems: "center",
                 backgroundColor: "transparent",
-                transform: [{ translateY: -35 }],
+                transform: [{ translateY: -40 }],
               }}
             >
               <View
                 style={{ flexDirection: "row", backgroundColor: "transparent" }}
               >
                 <Image
-                  style={styles.avatar}
+                  style={[styles.avatar, { transform: [{ translateX: 10 }] }]}
                   source={require("../../assets/images/fer.jpeg")}
                 />
                 <Image
-                  style={styles.avatar}
+                  style={[styles.avatar, { transform: [{ translateX: 0 }] }]}
                   source={require("../../assets/images/fer.jpeg")}
                 />
                 <Image
-                  style={styles.avatar}
+                  style={[styles.avatar, { transform: [{ translateX: -10 }] }]}
                   source={require("../../assets/images/fer.jpeg")}
                 />
                 <Image
-                  style={styles.avatar}
+                  style={[styles.avatar, { transform: [{ translateX: -20 }] }]}
+                  source={require("../../assets/images/fer.jpeg")}
+                />
+                <Image
+                  style={[styles.avatar, { transform: [{ translateX: -30 }] }]}
                   source={require("../../assets/images/fer.jpeg")}
                 />
               </View>
