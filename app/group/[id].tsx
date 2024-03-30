@@ -78,19 +78,19 @@ function HeadContent() {
                 />
                 <Image
                   style={[styles.avatar, { transform: [{ translateX: 0 }] }]}
-                  source={require("../../assets/images/fer.jpeg")}
+                  source={require("../../assets/images/purata.jpeg")}
                 />
                 <Image
                   style={[styles.avatar, { transform: [{ translateX: -10 }] }]}
-                  source={require("../../assets/images/fer.jpeg")}
+                  source={require("../../assets/images/jane.png")}
                 />
                 <Image
                   style={[styles.avatar, { transform: [{ translateX: -20 }] }]}
-                  source={require("../../assets/images/fer.jpeg")}
+                  source={require("../../assets/images/cassy.jpeg")}
                 />
                 <Image
                   style={[styles.avatar, { transform: [{ translateX: -30 }] }]}
-                  source={require("../../assets/images/fer.jpeg")}
+                  source={require("../../assets/images/queens_gambit.png")}
                 />
               </View>
               <Text style={styles.members}>+ 100 miembros</Text>
