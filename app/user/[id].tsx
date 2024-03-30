@@ -70,18 +70,18 @@ function Posts() {
       <View>
         <Post
           avatar={"0"}
-          name={"Fernando Contreras"}
-          studyField={"Sistemas de Información Administrativa"}
+          name={"Omar Purata"}
+          studyField={"omar.purata@ugto.mx"}
         />
         <Post
           avatar={"0"}
-          name={"Fernando Contreras"}
-          studyField={"Sistemas de Información Administrativa"}
+          name={"Omar Purata"}
+          studyField={"omar.purata@ugto.mx"}
         />
         <Post
           avatar={"0"}
-          name={"Fernando Contreras"}
-          studyField={"Sistemas de Información Administrativa"}
+          name={"Omar Purata"}
+          studyField={"omar.purata@ugto.mx"}
         />
       </View>
     </View>
