@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   body: {
     width: "90%",
     marginHorizontal: "5%",
-    marginTop: 50,
+    marginTop: 90,
     marginBottom: 20,
   },
   header: {
@@ -59,6 +59,20 @@ const styles = StyleSheet.create({
   linkSection: {
     flexDirection: "row",
     marginHorizontal: 15,
+    marginVertical: 5,
+  },
+  avatar: {
+    width: 36,
+    height: 36,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: Colors.pallete.honey,
+    backgroundColor: "transparent",
+  },
+  members: {
+    fontSize: 12,
+    fontFamily: "Montserrat-Medium",
+    color: "#fff",
     marginVertical: 5,
   },
   link: {

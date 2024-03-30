@@ -1,4 +1,10 @@
-import { Pressable, Image, StyleSheet, Dimensions } from "react-native";
+import {
+  Pressable,
+  Image,
+  StyleSheet,
+  Dimensions,
+  StatusBar,
+} from "react-native";
 import { Text, View, SafeAreaView, ScrollView } from "../../components/Themed";
 import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -10,8 +16,9 @@ const { height } = Dimensions.get("window");
 export default function Profile() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View style={{ paddingTop: 30, paddingBottom: 65 }}>
+      <StatusBar barStyle="light-content" />
+      <ScrollView style={{ paddingTop: 30 }}>
+        <View style={{ paddingBottom: 85 }}>
           <ProfileInfo />
           <Posts />
         </View>
@@ -110,7 +117,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "absolute",
     zIndex: 99,
-    top: 30,
+    top: 10,
     left: 10,
   },
   headerContainer: {
@@ -126,11 +133,11 @@ const styles = StyleSheet.create({
   },
   profileBackground: {
     width: "100%",
-    height: height / 7,
+    height: height / 6,
     opacity: 0.85,
   },
   profileContent: {
-    height: 140,
+    height: 110,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -175,7 +182,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   posts: {
-    marginTop: 60,
+    marginTop: 75,
     marginBottom: 15,
     paddingHorizontal: "2.5%",
   },

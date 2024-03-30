@@ -48,19 +48,58 @@ function HeadContent() {
       />
       <View style={styles.headerContent}>
         <View style={styles.gradient}>
-          <View
-            style={{
-              width: "80%",
-              backgroundColor: "transparent",
-              transform: [{ translateY: -40 }],
-            }}
-          >
-            <Text style={styles.groupName}>Club de Ajedrez UG</Text>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View
+              style={{
+                width: "55%",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                backgroundColor: "transparent",
+                transform: [{ translateY: -50 }],
+              }}
+            >
+              <Text style={styles.groupName}>Club de Ajedrez UG</Text>
+            </View>
+            <View
+              style={{
+                width: "45%",
+                flexDirection: "column",
+                alignItems: "center",
+                backgroundColor: "transparent",
+                transform: [{ translateY: -40 }],
+              }}
+            >
+              <View
+                style={{ flexDirection: "row", backgroundColor: "transparent" }}
+              >
+                <Image
+                  style={[styles.avatar, { transform: [{ translateX: 10 }] }]}
+                  source={require("../../assets/images/fer.jpeg")}
+                />
+                <Image
+                  style={[styles.avatar, { transform: [{ translateX: 0 }] }]}
+                  source={require("../../assets/images/purata.jpeg")}
+                />
+                <Image
+                  style={[styles.avatar, { transform: [{ translateX: -10 }] }]}
+                  source={require("../../assets/images/jane.png")}
+                />
+                <Image
+                  style={[styles.avatar, { transform: [{ translateX: -20 }] }]}
+                  source={require("../../assets/images/cassy.jpeg")}
+                />
+                <Image
+                  style={[styles.avatar, { transform: [{ translateX: -30 }] }]}
+                  source={require("../../assets/images/queens_gambit.png")}
+                />
+              </View>
+              <Text style={styles.members}>+ 100 miembros</Text>
+            </View>
           </View>
           <View
             style={{
               backgroundColor: "transparent",
-              transform: [{ translateY: -20 }],
+              transform: [{ translateY: -30 }],
             }}
           >
             <Text style={styles.groupDescription}>

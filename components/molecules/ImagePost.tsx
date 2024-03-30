@@ -14,10 +14,6 @@ export default function ImagePost({ image }: { image: string }) {
       style={styles.container}
       onPress={() => router.push("/posts/1/")}
     >
-      <Image
-        style={styles.image}
-        source={require("../../assets/images/model_4.png")}
-      />
       <View style={styles.content}>
         <Pressable
           style={styles.userSection}
@@ -29,9 +25,7 @@ export default function ImagePost({ image }: { image: string }) {
           />
           <View style={styles.userInfo}>
             <Text style={styles.userName}>Fernando Contreras</Text>
-            <Text style={styles.studyField}>
-              Sistemas de Información Administrativa
-            </Text>
+            <Text style={styles.studyField}>corahama@ugto.mx</Text>
           </View>
         </Pressable>
         <View style={styles.postTextContainer}>
@@ -39,6 +33,12 @@ export default function ImagePost({ image }: { image: string }) {
             El dia de hoy tendremos un nuevo taller en el auditorio A-103, habrá
             UDPS ✨
           </Text>
+        </View>
+        <View style={{ alignItems: "center", marginBottom: 10 }}>
+          <Image
+            style={styles.image}
+            source={require("../../assets/images/model_4.png")}
+          />
         </View>
         <View style={styles.postControls}>
           <View style={styles.voteControls}>
@@ -84,11 +84,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   image: {
-    width: "100%",
-    height: 150,
+    width: "90%",
+    height: 160,
+    borderRadius: 8,
     resizeMode: "cover",
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
   },
   userSection: {
     flexDirection: "row",
@@ -127,9 +126,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   postText: {
-    fontSize: 12,
+    fontSize: 14,
     color: Colors.dark.text,
-    fontFamily: "Montserrat-Medium",
+    fontFamily: "Montserrat-Regular",
   },
   upvote: {
     flexDirection: "row",
