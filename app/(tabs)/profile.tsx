@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     paddingVertical: 10,
-    paddingHorizontal: "5%",
+    paddingHorizontal: "2.5%",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   },
   categories: {
     marginTop: 50,
-    marginHorizontal: "5%",
+    marginHorizontal: "2.5%",
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -168,6 +168,6 @@ const styles = StyleSheet.create({
   },
   posts: {
     marginVertical: 15,
-    paddingHorizontal: "5%",
+    paddingHorizontal: "2.5%",
   },
 });
