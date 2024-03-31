@@ -32,9 +32,14 @@ export function LoginForm() {
           <FormInput placeholder="Contraseña" />
         </View>
       </View>
-      <Pressable style={styles.buttonForm} onPress={() => {}}>
-        <Text style={styles.buttonFormText}>Ingresar</Text>
-      </Pressable>
+      <View>
+        <Pressable style={styles.buttonForm} onPress={() => {}}>
+          <Text style={styles.buttonFormText}>Ingresar</Text>
+        </Pressable>
+        <Pressable onPress={() => {}}>
+          <Text style={styles.forgetText}>¿Olvidaste tu contraseña?</Text>
+        </Pressable>
+      </View>
     </View>
   );
 }

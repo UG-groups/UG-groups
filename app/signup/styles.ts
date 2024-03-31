@@ -38,6 +38,13 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat-Bold",
     textAlign: "center",
   },
+  forgetText: {
+    color: Colors.pallete.primary,
+    fontSize: 14,
+    fontFamily: "Montserrat-Medium",
+    textAlign: "center",
+    marginTop: 20,
+  },
 });
 
 export default styles;
