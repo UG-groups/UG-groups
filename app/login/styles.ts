@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.dark.background,
     paddingHorizontal: "5%",
-    paddingTop: height * 0.2,
+    paddingTop: height * 0.1,
   },
   formContainer: {
     marginTop: height * 0.04,
@@ -61,6 +61,12 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat-SemiBold",
     color: Colors.pallete.lightGray,
     marginHorizontal: 20,
+  },
+  beeBoxContainer: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: "15%",
   },
   beeBox: {
     width: 40,

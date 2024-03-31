@@ -18,7 +18,9 @@ export default function Login() {
     <>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.container}>
-        <BeeBox />
+        <View style={styles.beeBoxContainer}>
+          <BeeBox />
+        </View>
         <Text style={styles.loginTitle}>Inicia Sesión</Text>
         <Text style={styles.loginSubtitle}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
