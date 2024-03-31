@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   StatusBar,
 } from "react-native";
+import { useRouter } from "expo-router";
 //* UI comps.
 import FormInput from "../../components/atoms/FormInput";
 //* Styling
@@ -44,6 +45,8 @@ function BeeBox() {
 }
 
 function LoginForm() {
+  const router = useRouter();
+
   return (
     <View style={styles.formContainer}>
       <View>
@@ -77,7 +80,7 @@ function LoginForm() {
             borderColor: Colors.pallete.primary,
           },
         ]}
-        onPress={() => {}}
+        onPress={() => router.push("signup")}
       >
         <Text
           style={[styles.buttonFormText, { color: Colors.pallete.primary }]}
