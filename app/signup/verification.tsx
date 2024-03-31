@@ -21,7 +21,7 @@ export default function Verification() {
         <View style={styles.beeBoxContainer}>
           <BeeBox />
         </View>
-        <Text style={styles.loginTitle}>Crear una cuenta</Text>
+        <Text style={styles.loginTitle}>Código de verificación</Text>
         <Text style={styles.loginSubtitle}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           tincidunt emmet.
@@ -36,8 +36,8 @@ function BeeBox() {
   return (
     <View style={styles.beeBox}>
       <Image
-        style={styles.beeImg}
-        source={require("../../assets/images/bee_emoji.png")}
+        style={[styles.beeImg, { width: 30, height: 30 }]}
+        source={require("../../assets/images/monkey_emoji.png")}
       />
     </View>
   );
@@ -55,15 +55,16 @@ function VerificationForm() {
         <Pressable style={styles.buttonForm} onPress={() => {}}>
           <Text style={styles.buttonFormText}>Continuar</Text>
         </Pressable>
-        <View
+        <Pressable
           style={{
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
           }}
+          onPress={() => router.push("login")}
         >
           <Text style={styles.forgetText}>Volver a inicio de sesión</Text>
-        </View>
+        </Pressable>
       </View>
     </View>
   );

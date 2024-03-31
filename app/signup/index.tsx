@@ -57,7 +57,10 @@ function SignUpForm() {
         </View>
       </View>
       <View>
-        <Pressable style={styles.buttonForm} onPress={() => {}}>
+        <Pressable
+          style={styles.buttonForm}
+          onPress={() => router.push("/signup/verification")}
+        >
           <Text style={styles.buttonFormText}>Crear cuenta</Text>
         </Pressable>
         <View
