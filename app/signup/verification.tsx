@@ -13,7 +13,7 @@ import FormInput from "../../components/atoms/FormInput";
 //* Styling
 import styles from "./styles";
 
-export default function SignUp() {
+export default function Verification() {
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -26,7 +26,7 @@ export default function SignUp() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           tincidunt emmet.
         </Text>
-        <SignUpForm />
+        <VerificationForm />
       </SafeAreaView>
     </>
   );
@@ -43,7 +43,7 @@ function BeeBox() {
   );
 }
 
-function SignUpForm() {
+function VerificationForm() {
   const router = useRouter();
 
   return (
@@ -52,13 +52,8 @@ function SignUpForm() {
         <FormInput placeholder="Correo Electrónico" />
       </View>
       <View>
-        <View>
-          <FormInput placeholder="Contraseña" />
-        </View>
-      </View>
-      <View>
         <Pressable style={styles.buttonForm} onPress={() => {}}>
-          <Text style={styles.buttonFormText}>Crear cuenta</Text>
+          <Text style={styles.buttonFormText}>Continuar</Text>
         </Pressable>
         <View
           style={{
@@ -67,12 +62,7 @@ function SignUpForm() {
             alignItems: "center",
           }}
         >
-          <Text style={[styles.forgetText, { color: "#fff", marginRight: 5 }]}>
-            ¿Ya tienes una cuenta?
-          </Text>
-          <Pressable onPress={() => router.push("login")}>
-            <Text style={styles.forgetText}>Inicia sesión</Text>
-          </Pressable>
+          <Text style={styles.forgetText}>Volver a inicio de sesión</Text>
         </View>
       </View>
     </View>
