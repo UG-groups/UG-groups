@@ -3,10 +3,11 @@ import {
   DefaultTheme,
   ThemeProvider,
 } from "@react-navigation/native";
-import { useFonts } from "expo-font";
-import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme, StatusBar } from "react-native";
+import { SplashScreen, Stack, Slot, Redirect } from "expo-router";
+import { useFonts } from "expo-font";
+import { SessionProvider, useSession } from "./ctx";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -34,14 +35,22 @@ export default function RootLayout() {
   }, [error]);
 
   return (
-    <>
-      <RootLayoutNav />
-    </>
+    <SessionProvider>
+      <Slot />
+      <AppLayout />
+    </SessionProvider>
   );
 }
 
-function RootLayoutNav() {
+function AppLayout() {
   const colorScheme = useColorScheme();
+  const { session, isLoading } = useSession();
+
+  console.log("session: ", session);
+
+  if (!session) {
+    return <Redirect href="/login" />;
+  }
 
   return (
     <>

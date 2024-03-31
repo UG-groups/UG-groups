@@ -7,7 +7,6 @@ import {
   SafeAreaView,
   StatusBar,
 } from "react-native";
-import { useRouter } from "expo-router";
 //* UI comps.
 import FormInput from "../../components/atoms/FormInput";
 //* Styling
@@ -22,7 +21,7 @@ export default function Login() {
         <View style={styles.beeBoxContainer}>
           <BeeBox />
         </View>
-        <Text style={styles.loginTitle}>Inicia Sesión</Text>
+        <Text style={styles.loginTitle}>Crear una cuenta</Text>
         <Text style={styles.loginSubtitle}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           tincidunt emmet.
@@ -45,8 +44,6 @@ function BeeBox() {
 }
 
 function LoginForm() {
-  const router = useRouter();
-
   return (
     <View style={styles.formContainer}>
       <View>
@@ -59,35 +56,15 @@ function LoginForm() {
       </View>
       <View>
         <Pressable style={styles.buttonForm} onPress={() => {}}>
-          <Text style={styles.buttonFormText}>Ingresar</Text>
+          <Text style={styles.buttonFormText}>Crear cuenta</Text>
         </Pressable>
         <Pressable onPress={() => {}}>
-          <Text style={styles.forgetText}>¿Olvidaste tu contraseña?</Text>
+          <Text style={styles.forgetText}>
+            <Text style={{ color: "#fff" }}>¿Ya tienes una cuenta?</Text> Inicia
+            sesión
+          </Text>
         </Pressable>
       </View>
-      <View style={styles.dividerContainer}>
-        <View style={styles.divider}></View>
-        <Text style={styles.dividerText}>O</Text>
-        <View style={styles.divider}></View>
-      </View>
-      <Pressable
-        style={[
-          styles.buttonForm,
-          {
-            marginVertical: 0,
-            backgroundColor: "transparent",
-            borderWidth: 3,
-            borderColor: Colors.pallete.primary,
-          },
-        ]}
-        onPress={() => router.push("signup")}
-      >
-        <Text
-          style={[styles.buttonFormText, { color: Colors.pallete.primary }]}
-        >
-          Crear una cuenta
-        </Text>
-      </Pressable>
     </View>
   );
 }
