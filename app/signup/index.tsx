@@ -1,27 +1,49 @@
 import React from "react";
-import { View, Text, Pressable, SafeAreaView, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  Pressable,
+  SafeAreaView,
+  StatusBar,
+} from "react-native";
 //* UI comps.
 import FormInput from "../../components/atoms/FormInput";
 //* Styling
 import styles from "./styles";
+import Colors from "../../constants/Colors";
 
-export default function SignUp() {
+export default function Login() {
   return (
     <>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.container}>
-        <Text style={styles.loginTitle}>Crea una cuenta</Text>
+        <View style={styles.beeBoxContainer}>
+          <BeeBox />
+        </View>
+        <Text style={styles.loginTitle}>Crear una cuenta</Text>
         <Text style={styles.loginSubtitle}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           tincidunt emmet.
         </Text>
-        <SignUpForm />
+        <LoginForm />
       </SafeAreaView>
     </>
   );
 }
 
-export function SignUpForm() {
+function BeeBox() {
+  return (
+    <View style={styles.beeBox}>
+      <Image
+        style={styles.beeImg}
+        source={require("../../assets/images/bee_emoji.png")}
+      />
+    </View>
+  );
+}
+
+function LoginForm() {
   return (
     <View style={styles.formContainer}>
       <View>
@@ -36,8 +58,11 @@ export function SignUpForm() {
         <Pressable style={styles.buttonForm} onPress={() => {}}>
           <Text style={styles.buttonFormText}>Crear cuenta</Text>
         </Pressable>
-        <Pressable style={styles.forgetText} onPress={() => {}}>
-          ¿Olvidaste tu contraseña?
+        <Pressable onPress={() => {}}>
+          <Text style={styles.forgetText}>
+            <Text style={{ color: "#fff" }}>¿Ya tienes una cuenta?</Text> Inicia
+            sesión
+          </Text>
         </Pressable>
       </View>
     </View>
