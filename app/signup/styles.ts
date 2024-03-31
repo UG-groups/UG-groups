@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.dark.background,
     paddingHorizontal: "5%",
-    paddingTop: height * 0.2,
+    paddingTop: height * 0.1,
   },
   formContainer: {
     marginTop: height * 0.04,
@@ -41,9 +41,48 @@ const styles = StyleSheet.create({
   forgetText: {
     color: Colors.pallete.primary,
     fontSize: 14,
-    fontFamily: "Montserrat-Medium",
+    fontFamily: "Montserrat-SemiBold",
     textAlign: "center",
-    marginTop: 20,
+    marginTop: 10,
+  },
+  dividerContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: "10%",
+  },
+  divider: {
+    height: 1,
+    width: "40%",
+    backgroundColor: Colors.pallete.lightGray,
+  },
+  dividerText: {
+    fontSize: 16,
+    fontFamily: "Montserrat-SemiBold",
+    color: Colors.pallete.lightGray,
+    marginHorizontal: 20,
+  },
+  beeBoxContainer: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: "15%",
+  },
+  beeBox: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    backgroundColor: Colors.pallete.secondary,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 4,
+    borderWidth: 1,
+    borderColor: "#3F3F45",
+  },
+  beeImg: {
+    width: 25,
+    height: 25,
   },
 });
 
