@@ -45,6 +45,39 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10,
   },
+  dividerContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: "10%",
+  },
+  divider: {
+    height: 1,
+    width: "40%",
+    backgroundColor: Colors.pallete.lightGray,
+  },
+  dividerText: {
+    fontSize: 16,
+    fontFamily: "Montserrat-SemiBold",
+    color: Colors.pallete.lightGray,
+    marginHorizontal: 20,
+  },
+  beeBox: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    backgroundColor: Colors.pallete.secondary,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 4,
+    borderWidth: 1,
+    borderColor: "#3F3F45",
+  },
+  beeImg: {
+    width: 25,
+    height: 25,
+  },
 });
 
 export default styles;

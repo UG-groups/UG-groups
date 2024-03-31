@@ -1,15 +1,24 @@
 import React from "react";
-import { View, Text, Pressable, SafeAreaView, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  Pressable,
+  SafeAreaView,
+  StatusBar,
+} from "react-native";
 //* UI comps.
 import FormInput from "../../components/atoms/FormInput";
 //* Styling
 import styles from "./styles";
+import Colors from "../../constants/Colors";
 
 export default function Login() {
   return (
     <>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.container}>
+        <BeeBox />
         <Text style={styles.loginTitle}>Inicia Sesión</Text>
         <Text style={styles.loginSubtitle}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
@@ -21,7 +30,18 @@ export default function Login() {
   );
 }
 
-export function LoginForm() {
+function BeeBox() {
+  return (
+    <View style={styles.beeBox}>
+      <Image
+        style={styles.beeImg}
+        source={require("../../assets/images/bee_emoji.png")}
+      />
+    </View>
+  );
+}
+
+function LoginForm() {
   return (
     <View style={styles.formContainer}>
       <View>
@@ -40,6 +60,29 @@ export function LoginForm() {
           <Text style={styles.forgetText}>¿Olvidaste tu contraseña?</Text>
         </Pressable>
       </View>
+      <View style={styles.dividerContainer}>
+        <View style={styles.divider}></View>
+        <Text style={styles.dividerText}>O</Text>
+        <View style={styles.divider}></View>
+      </View>
+      <Pressable
+        style={[
+          styles.buttonForm,
+          {
+            marginVertical: 0,
+            backgroundColor: "transparent",
+            borderWidth: 3,
+            borderColor: Colors.pallete.primary,
+          },
+        ]}
+        onPress={() => {}}
+      >
+        <Text
+          style={[styles.buttonFormText, { color: Colors.pallete.primary }]}
+        >
+          Crear una cuenta
+        </Text>
+      </Pressable>
     </View>
   );
 }
