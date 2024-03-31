@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button, SafeAreaView, StatusBar } from "react-native";
+import { View, Text, Pressable, SafeAreaView, StatusBar } from "react-native";
 //* UI comps.
 import FormInput from "../../components/atoms/FormInput";
 //* Styling
@@ -15,6 +15,7 @@ export default function Login() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           tincidunt emmet.
         </Text>
+        <LoginForm />
       </SafeAreaView>
     </>
   );
@@ -22,16 +23,18 @@ export default function Login() {
 
 export function LoginForm() {
   return (
-    <View>
+    <View style={styles.formContainer}>
       <View>
         <FormInput placeholder="Correo Electrónico" />
       </View>
       <View>
         <View>
-          <FormInput placeholder="Correo Electrónico" />
+          <FormInput placeholder="Contraseña" />
         </View>
       </View>
-      <Button title="Ingresar" onPress={() => {}} />
+      <Pressable style={styles.buttonForm} onPress={() => {}}>
+        <Text style={styles.buttonFormText}>Ingresar</Text>
+      </Pressable>
     </View>
   );
 }

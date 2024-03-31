@@ -8,9 +8,14 @@ export default function FormInput({ placeholder }: { placeholder: string }) {
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
-    margin: 12,
+    height: 48,
+    width: "100%",
+    marginBottom: 20,
     borderWidth: 2,
+    paddingHorizontal: 15,
     borderColor: Colors.pallete.lightGray,
+    borderRadius: 12,
+    color: "#fff",
+    backgroundColor: "transparent",
   },
 });
