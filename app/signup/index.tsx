@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -43,8 +43,23 @@ function BeeBox() {
   );
 }
 
+const signUpForm = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  bio: "",
+  userType: "",
+  division: "",
+  academicLevel: "",
+  degreeName: "",
+  password: "",
+  passwordConfirm: "",
+  captchaToken: "",
+};
+
 function SignUpForm() {
   const router = useRouter();
+  const [signUpData, setSignUpData] = useState(signUpForm);
 
   return (
     <View style={styles.formContainer}>
