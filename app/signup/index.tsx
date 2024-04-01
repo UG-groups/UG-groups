@@ -61,21 +61,46 @@ function SignUpForm() {
   const router = useRouter();
   const [signUpData, setSignUpData] = useState(signUpForm);
 
+  console.log("SIGN UP DATA -> ", signUpData);
+
+  const handleSendRequest = async () => {
+    try {
+      const response = await fetch("http://164.90.152.172/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signUpData),
+      });
+      const data = await response.json();
+      console.log("SIGN UP RESPONSE -> ", data);
+    } catch (error) {
+      console.log("SIGN UP ERROR -> ", error);
+    }
+  };
+
   return (
     <View style={styles.formContainer}>
       <View>
-        <FormInput placeholder="Correo Electrónico" />
+        <FormInput
+          placeholder="Correo Electrónico"
+          onUpdateField={(text: string) =>
+            setSignUpData({ ...signUpData, email: text })
+          }
+        />
       </View>
       <View>
         <View>
-          <FormInput placeholder="Contraseña" />
+          <FormInput
+            placeholder="Contraseña"
+            onUpdateField={(text: string) =>
+              setSignUpData({ ...signUpData, password: text })
+            }
+          />
         </View>
       </View>
       <View>
-        <Pressable
-          style={styles.buttonForm}
-          onPress={() => router.push("/signup/verification")}
-        >
+        <Pressable style={styles.buttonForm} onPress={handleSendRequest}>
           <Text style={styles.buttonFormText}>Crear cuenta</Text>
         </Pressable>
         <View

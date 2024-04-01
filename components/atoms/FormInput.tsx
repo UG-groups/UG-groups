@@ -2,8 +2,20 @@ import React from "react";
 import { TextInput, StyleSheet } from "react-native";
 import Colors from "../../constants/Colors";
 
-export default function FormInput({ placeholder }: { placeholder: string }) {
-  return <TextInput placeholder={placeholder} style={styles.input} />;
+export default function FormInput({
+  placeholder,
+  onUpdateField,
+}: {
+  placeholder: string;
+  onUpdateField: (value: string) => void;
+}) {
+  return (
+    <TextInput
+      placeholder={placeholder}
+      style={styles.input}
+      onChangeText={onUpdateField}
+    />
+  );
 }
 
 const styles = StyleSheet.create({
