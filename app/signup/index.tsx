@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,13 +7,13 @@ import {
   SafeAreaView,
   StatusBar,
 } from "react-native";
+import { useRouter } from "expo-router";
 //* UI comps.
 import FormInput from "../../components/atoms/FormInput";
 //* Styling
 import styles from "./styles";
-import Colors from "../../constants/Colors";
 
-export default function Login() {
+export default function SignUp() {
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -26,7 +26,7 @@ export default function Login() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           tincidunt emmet.
         </Text>
-        <LoginForm />
+        <SignUpForm />
       </SafeAreaView>
     </>
   );
@@ -43,27 +43,80 @@ function BeeBox() {
   );
 }
 
-function LoginForm() {
+const signUpForm = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  bio: "",
+  userType: "",
+  division: "",
+  academicLevel: "",
+  degreeName: "",
+  password: "",
+  passwordConfirm: "",
+  captchaToken: "",
+};
+
+function SignUpForm() {
+  const router = useRouter();
+  const [signUpData, setSignUpData] = useState(signUpForm);
+
+  console.log("SIGN UP DATA -> ", signUpData);
+
+  const handleSendRequest = async () => {
+    try {
+      const response = await fetch("http://164.90.152.172/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signUpData),
+      });
+      const data = await response.json();
+      console.log("SIGN UP RESPONSE -> ", data);
+    } catch (error) {
+      console.log("SIGN UP ERROR -> ", error);
+    }
+  };
+
   return (
     <View style={styles.formContainer}>
       <View>
-        <FormInput placeholder="Correo Electrónico" />
+        <FormInput
+          placeholder="Correo Electrónico"
+          onUpdateField={(text: string) =>
+            setSignUpData({ ...signUpData, email: text })
+          }
+        />
       </View>
       <View>
         <View>
-          <FormInput placeholder="Contraseña" />
+          <FormInput
+            placeholder="Contraseña"
+            onUpdateField={(text: string) =>
+              setSignUpData({ ...signUpData, password: text })
+            }
+          />
         </View>
       </View>
       <View>
-        <Pressable style={styles.buttonForm} onPress={() => {}}>
+        <Pressable style={styles.buttonForm} onPress={handleSendRequest}>
           <Text style={styles.buttonFormText}>Crear cuenta</Text>
         </Pressable>
-        <Pressable onPress={() => {}}>
-          <Text style={styles.forgetText}>
-            <Text style={{ color: "#fff" }}>¿Ya tienes una cuenta?</Text> Inicia
-            sesión
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={[styles.forgetText, { color: "#fff", marginRight: 5 }]}>
+            ¿Ya tienes una cuenta?
           </Text>
-        </Pressable>
+          <Pressable onPress={() => router.push("login")}>
+            <Text style={styles.forgetText}>Inicia sesión</Text>
+          </Pressable>
+        </View>
       </View>
     </View>
   );
